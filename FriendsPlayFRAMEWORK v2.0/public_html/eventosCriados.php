@@ -71,6 +71,25 @@
                     </div>
                     
                     <h3>Lista de eventos que criei:</h3>
+                    <table class="table table-bordered">
+                        <tbody><tr>
+                    <th>Nº</th>
+                    <th>Nome do Evento</th>
+                    <th>Data</th>
+                    <th>Local</th>
+                    <th>Nº de participantes</th>
+                    <th>Editar</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Teste</td>
+                    <td>00/00/00</td>
+                    <td>Quadra da UEFS</td>
+                    <td>19 Pessoas</td>
+                    <td><a>Alterar</a></td>
+                </tr>
+            </tbody>
+                    </table>
                 </div>
 
             </div>
