@@ -1,0 +1,25 @@
+
+div#col-lateral-direita{
+    background-color: ;
+}
+
+div#col-lateral-direita img#foto-perfil{
+    margin-top: 10px; 
+}
+
+div#col-lateral-direita iframe{
+    width: 260px;
+    height: 250px;
+    margin-top: 30px;
+    
+}
+
+div#rodape{
+    text-align: center;
+    margin: 40px auto 40px auto;
+}
+
+button#menu-sair{
+    border-color: #ffffff;
+    margin-left: 230px;
+}
