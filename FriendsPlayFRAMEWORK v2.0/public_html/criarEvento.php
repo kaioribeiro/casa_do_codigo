@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
-
-session_start(); 
+session_start();
 ?>
 <html lang="en">
     <head>
@@ -82,69 +81,19 @@ session_start();
                                 </div>
                             </div>
 
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="logradouro">Logradouro:</label>  
-                                <div class="col-md-4">
-                                    <input id="logradouro" name="logradouro" type="text" placeholder="Rua, Av, Travessa..." class="form-control input-md">
+                            
 
+
+                           
+                            
+
+                            <!-- Button -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="cLocal"></label>
+                                <div class="col-md-5">
+                                    <a href="cadastrarLocal.php">Escolha local para o seu evento!</a>
                                 </div>
                             </div>
-
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="num">Número</label>  
-                                <div class="col-md-2">
-                                    <input id="num" name="num" type="text" placeholder="" class="form-control input-md">
-
-                                </div>
-                            </div>
-
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="cidade">Cidade:</label>  
-                                <div class="col-md-4">
-                                    <input id="cidade" name="cidade" type="text" placeholder="" class="form-control input-md">
-
-                                </div>
-                            </div>
-
-                            <!-- Select Basic -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="estado">Estado:</label>
-                                <div class="col-md-2">
-                                    <select id="estado" name="estado" class="form-control">
-                                        <option value="AC">AC</option>
-                                        <option value="AL">AL</option>
-                                        <option value="AP">AP</option>
-                                        <option value="AM">AM</option>
-                                        <option value="BA">BA</option>
-                                        <option value="CE">CE</option>
-                                        <option value="DF">DF</option>
-                                        <option value="ES">ES</option>
-                                        <option value="GO">GO</option>
-                                        <option value="MA">MA</option>
-                                        <option value="MT">MT</option>
-                                        <option value="MS">MS</option>
-                                        <option value="MG">MG</option>
-                                        <option value="PA">PA</option>
-                                        <option value="PB">PB</option>
-                                        <option value="PR">PR</option>
-                                        <option value="PE">PE</option>
-                                        <option value="PI">PI</option>
-                                        <option value="RJ">RJ</option>
-                                        <option value="RN">RN</option>
-                                        <option value="RS">RS</option>
-                                        <option value="RO">RO</option>
-                                        <option value="RR">RR</option>
-                                        <option value="SC">SC</option>
-                                        <option value="SP">SP</option>
-                                        <option value="SE">SE</option>
-                                        <option value="TO">TO</option>
-                                    </select>
-                                </div>
-                            </div>
-
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="data">Data:</label>  
@@ -157,6 +106,7 @@ session_start();
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="hora">Hora inicial:</label>  
+                                
                                 <div class="col-md-4">
                                     <input id="hora" name="hora" type="time" placeholder="Hora do evento" class="form-control input-md">
 
@@ -217,7 +167,7 @@ session_start();
                                     <textarea class="form-control" id="descricao" name="descricao">Descreva regras, características e/ou avisos para convidados...</textarea>
                                 </div>
                             </div>
-                            <button type="submit" >Cadastrar Evento</button>
+                            <button type="submit" class="btn btn-primary" style="margin-left: 650px; margin-top: 1%;">Cadastrar Evento</button>
                         </fieldset>
                     </form>
 
