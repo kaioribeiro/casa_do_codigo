@@ -46,6 +46,7 @@ $descricao = $_REQUEST['descricao'];
  	} else {
 		 inserir(array("nome", "data","horario_inicial","horario_final","n_min","n_max","privacidade",
 		 "descricao","id_usuario"),
+
 		array($nome, $data, $hora, $hora_final, $numeroMinimo, $numeroMaximo, $privacidade, $descricao, $_SESSION['FBID'],),
 	  	"evento");
  		echo "entrou no else";
@@ -56,6 +57,7 @@ $descricao = $_REQUEST['descricao'];
  	echo "Evento já existe!";
  }
 
-header("Location: ../eventosCriados.php"); 
+//header("Location: ../eventosCriados.php"); 
+ 
 
  ?>
