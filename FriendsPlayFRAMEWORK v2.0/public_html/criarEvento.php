@@ -53,7 +53,7 @@
 
                 <!--Segunda Linha--> 
                 <div class="col-md-9 col-md-push-0">
-                    <form class="form-horizontal">
+                    <form action="_inserts/InserirLocal.php" class="form-horizontal">
                         <fieldset>
 
                             <!-- Form Name -->
