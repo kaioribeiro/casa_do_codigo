@@ -1,3 +1,10 @@
+<?php 
+include ("_Funcoes/FuncaoSelect.php");
+
+$consulta= select("evento","*", null, null, null);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -80,14 +87,25 @@
                     <th>Nº de participantes</th>
                     <th>Editar</th>
                 </tr>
+
+                 <?php 
+                    if($consulta == true){
+                        for ($i=0; $i < count($consulta); $i++) { 
+                 ?>
                 <tr>
-                    <td>1</td>
-                    <td>Teste</td>
-                    <td>00/00/00</td>
-                    <td>Quadra da UEFS</td>
-                    <td>19 Pessoas</td>
-                    <td><a>Alterar</a></td>
+                    <td><?php echo $i?></td>
+                    <td><?php echo $consulta[$i]['nome'];?></td>
+                    <td><?php echo $consulta[$i]['data']; ?></td>
+                    <td><?php echo "preencher"; ?></td> 
+                    <td><?php echo "preencher"; ?></td> 
+                    <td><a href="editar_evento.php?id=<?php echo $consulta[$i]['id_evento']; ?>">Alterar</a></td>
                 </tr>
+                 <?php 
+                                    }
+                        }else{
+                            echo "Nunhum dado encontrado!";
+                    }
+                 ?>
             </tbody>
                     </table>
                 </div>
