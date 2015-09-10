@@ -54,7 +54,7 @@
 
                 <!--Segunda Linha--> 
                 <div class="col-md-9 col-md-push-0">
-                    <form action="_inserts/InserirLocal.php" class="form-horizontal">
+                    <form action="_inserts/InserirEvento.php" method="post" class="form-horizontal">
                         <fieldset>
 
                             <!-- Form Name -->
@@ -148,16 +148,26 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="data">Data:</label>  
                                 <div class="col-md-4">
-                                    <input id="data" name="data" type="text" placeholder="Data do evento" class="form-control input-md">
+                                    <input id="data" name="data" type="date" placeholder="Data do evento" class="form-control input-md">
 
                                 </div>
                             </div>
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="hora">Hora:</label>  
+                                <label class="col-md-4 control-label" for="hora">Hora inicial:</label>  
                                 <div class="col-md-4">
-                                    <input id="hora" name="hora" type="text" placeholder="Hora do evento" class="form-control input-md">
+                                    <input id="hora" name="hora" type="time" placeholder="Hora do evento" class="form-control input-md">
+
+                                </div>
+                            </div>
+
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="hora">Hora final:</label>  
+                                <div class="col-md-4">
+                                    <input id="horaf" name="horaf" type="time" placeholder="Hora do evento" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -166,7 +176,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="numMinimo">Nº mínimo de participantes:</label>  
                                 <div class="col-md-2">
-                                    <input id="numMinimo" name="numMinimo" type="text" placeholder="" class="form-control input-md">
+                                    <input id="numMinimo" name="nNumMin" type="number" placeholder="" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -175,7 +185,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="numMaximo">Nº máximo de participantes:</label>  
                                 <div class="col-md-2">
-                                    <input id="numMaximo" name="numMaximo" type="text" placeholder="" class="form-control input-md">
+                                    <input id="numMaximo" name="nNumMax" type="number" placeholder="" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -206,7 +216,7 @@
                                     <textarea class="form-control" id="descricao" name="descricao">Descreva regras, características e/ou avisos para convidados...</textarea>
                                 </div>
                             </div>
-                            <button id="botaoCadastrar" name="botaoBuscar" class="btn btn-primary" >Cadastrar Evento</button>
+                            <button type="submit" >Cadastrar Evento</button>
                         </fieldset>
                     </form>
 

@@ -5,7 +5,7 @@ session_start();
 include ("../_Funcoes/FuncaoInserir.php");
 include ("../_Funcoes/FuncaoSelectInsert.php");
 //Perfil
-$nome = $_REQUEST['nNome'];
+$nome = $_REQUEST['nome'];
 
 
 // //Logradouro
@@ -20,7 +20,7 @@ $hora = $_REQUEST['hora'];
 $hora_final = $_REQUEST['horaf'];	
 $numeroMaximo = $_REQUEST['nNumMax'];
 $numeroMinimo = $_REQUEST['nNumMin'];
-$privacidade = $_REQUEST['nPrivacidade'];
+$privacidade = $_REQUEST['privacidade'];
 
 //Descrição
 $descricao = $_REQUEST['descricao'];
