@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
-        
+        <link rel="stylesheet" type="text/css" href="_css/criarEvento.css"/>
+
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Friend's Play</title>
 
@@ -27,21 +28,21 @@
 
                 <!--Primeira Linha--> 
                 <div class="col-md-3 col-md-pull-1" id="col-lateral-direita">
-                    
+
                     <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <span class="caret"></span>
-                            </button>     
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        </button>     
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                             <li><a href="#">Sair</a></li>
-    
-                            </ul>
-                            </div>
+
+                        </ul>
+                    </div>
                     <img src="_imagens/avatar-perfil-mas.jpg"  class="img-circle" id="foto-perfil"> 
-                        
-                        
-                        <mark><h2>Nome do Usuário</h2></mark>
-                    
+
+
+                    <mark><h2>Nome do Usuário</h2></mark>
+
                     <ul class="nav nav-pills nav-stacked">
                         <li role="presentation" class="active"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>
@@ -59,7 +60,7 @@
                             <!-- Form Name -->
                             <legend>Crie o seu Evento</legend>
                             <h5>Menu > Criar Evento</h5>
-                            
+
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="nome">Nome:</label>  
@@ -70,50 +71,13 @@
                             </div>
 
                             <!-- Button Drop Down -->
+
+                            <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="modalidade">Modalidade:</label>
-                                <div class="col-md-5">
-                                    <div class="input-group">
-                                        <input id="modalidade" name="modalidade" class="form-control" placeholder="Dama, Fotebol..." type="text">
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                                Modalidades
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li><a href="#">Atletismo</a></li>
-                                                <li><a href="#">Badminton</a></li>
-                                                <li><a href="#">Basquetebol</a></li>
-                                                <li><a href="#">Boxe</a></li>
-                                                <li><a href="#">Canoagem</a></li>
-                                                <li><a href="#">Ciclismo</a></li>
-                                                <li><a href="#">Esgrima</a></li>
-                                                <li><a href="#">Futebol</a></li>
-                                                <li><a href="#">Ginástica</a></li>
-                                                <li><a href="#">Golfe</a></li>
-                                                <li><a href="#">Halterofilismo</a></li>
-                                                <li><a href="#">Handebol</a></li>
-                                                <li><a href="#">Hipismo</a></li>
-                                                <li><a href="#">Hóquei sobre grama</a></li>
-                                                <li><a href="#">Judô</a></li>
-                                                <li><a href="#">Lutas</a></li>
-                                                <li><a href="#">Nado sincronizado</a></li>
-                                                <li><a href="#">Natação</a></li>
-                                                <li><a href="#">Pentatlo moderno</a></li>
-                                                <li><a href="#">Polo aquático</a></li>
-                                                <li><a href="#">Remo</a></li>
-                                                <li><a href="#">Saltos ornamentais</a></li>
-                                                <li><a href="#">Taekwondo</a></li>
-                                                <li><a href="#">Tênis</a></li>
-                                                <li><a href="#">Tênis de mesa</a></li>
-                                                <li><a href="#">Tiro</a></li>
-                                                <li><a href="#">Tiro com arco</a></li>
-                                                <li><a href="#">Triatlo</a></li>
-                                                <li><a href="#">Vela</a></li>
-                                                <li><a href="#">Voleibol</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <label class="col-md-4 control-label" for="modalidade">Modalidade:</label>  
+                                <div class="col-md-4">
+                                    <input id="modalidade" name="modalidade" type="text" placeholder="Fotebol, Dama..." class="form-control input-md">
+
                                 </div>
                             </div>
 
@@ -242,7 +206,7 @@
                                     <textarea class="form-control" id="descricao" name="descricao">Descreva regras, características e/ou avisos para convidados...</textarea>
                                 </div>
                             </div>
-
+                            <button id="botaoCadastrar" name="botaoBuscar" class="btn btn-primary" >Cadastrar Evento</button>
                         </fieldset>
                     </form>
 
