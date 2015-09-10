@@ -2,7 +2,7 @@
 
 include ("../_Funcoes/FuncaoSelect.php");
 
-$consulta = select("Evento");
+$consulta = select("evento");
 if ($consulta == TRUE) {
 	
 	for ($i=0; $i <count($consulta) ; $i++) { 

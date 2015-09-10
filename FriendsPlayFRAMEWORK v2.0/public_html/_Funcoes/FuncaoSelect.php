@@ -1,6 +1,6 @@
 <?php 
-    include("_conexaoBD/Conexao.php");
-    include("_conexaoBD/FecharConexao.php");
+    require_once("_conexaoBD/Conexao.php");
+    require_once("_conexaoBD/FecharConexao.php");
 
 
     function select($tabela, $coluna, $where, $ordem, $limite){

@@ -43,7 +43,7 @@ session_start();
                         </ul>
                     </div>
                     <img src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
-
+                    <mark><h2><?php echo $_SESSION['FULLNAME']; ?></h2></mark>
                     <ul class="nav nav-pills nav-stacked">
                         <li role="presentation" class="active"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>

@@ -1,6 +1,6 @@
 <?php
-    include("../_conexaoBD/Conexao.php");
-    include("../_conexaoBD/FecharConexao.php");
+    require_once("_conexaoBD/Conexao.php");
+    include("_conexaoBD/FecharConexao.php");
         
     function inserir($coluna, $valor, $tabela){
         //Perguntar se os dado recebidos são arrays
