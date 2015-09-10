@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+
+session_start(); 
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -34,14 +38,11 @@
                             <span class="caret"></span>
                         </button>     
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="#">Sair</a></li>
+                            <li><a href="logout.php">Sair</a></li>
 
                         </ul>
                     </div>
-                    <img src="_imagens/avatar-perfil-mas.jpg"  class="img-circle" id="foto-perfil"> 
-
-
-                    <mark><h2>Nome do Usuário</h2></mark>
+                    <img src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
 
                     <ul class="nav nav-pills nav-stacked">
                         <li role="presentation" class="active"><a href="criarEvento.php">Criar Evento</a></li>

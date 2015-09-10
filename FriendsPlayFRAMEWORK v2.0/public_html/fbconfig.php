@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+include ("_Funcoes/FuncaoInserirFB.php");
+include ("_Funcoes/FuncaoSelect.php");
+
 // added in v4.0.0
 require_once 'autoload.php';
 use Facebook\FacebookSession;
@@ -17,7 +20,7 @@ use Facebook\HttpClients\FacebookHttpable;
 // init app with app id and secret
 FacebookSession::setDefaultApplication( '746054398850104','00000c4573e14d8e557342e9b2a11d33' );
 // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper('http://localhost/friendsplay/FriendsPlay/public_html/fbconfig.php' );
+    $helper = new FacebookRedirectLoginHelper('http://localhost/casa_do_codigo/FriendsPlayFRAMEWORK%20v2.0/public_html/fbconfig.php' );
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
@@ -43,10 +46,17 @@ if ( isset( $session ) ) {
 	    $_SESSION['EMAIL'] =  $femail;
       $_SESSION['AMIGOS'] = $amigos;
 
-      inserir(array("nome_usuario","id_usuario"), array($id,$nome));
+      $consulta= select("Usuario","id_usuario", "WHERE id_usuario = $fbid", null, null);
 
-    /* ---- header location after session ----*/
-  header("Location: http://localhost/friendsplay/FriendsPlay/index.php");
+       if ($consulta) {
+         header("Location: criarEvento.php");
+       }else{
+           echo "inserindo";
+         inserir(array("nome","id_usuario"), array($fbfullname,$fbid),'Usuario');
+
+
+        // header("Location: criarEvento.php");
+       }
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);

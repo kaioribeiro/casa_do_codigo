@@ -1,6 +1,6 @@
 <?php 
 include ("_Funcoes/FuncaoSelect.php");
-
+session_start();
 $consulta= select("evento","*", null, null, null);
 
 ?>
@@ -42,11 +42,11 @@ $consulta= select("evento","*", null, null, null);
                             <span class="caret"></span>
                             </button>     
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="#">Sair</a></li>
-    
-                            </ul>
-                            </div>
-                    <p><img src="_imagens/avatar-perfil-mas.jpg"  class="img-circle" id="foto-perfil"> 
+                            <li><a href="logout.php">Sair</a></li>
+
+                        </ul>
+                    </div>
+                    <img src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
                         
 
 
