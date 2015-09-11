@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 09/09/2015 às 04:12
+-- Tempo de geração: 11/09/2015 às 13:55
 -- Versão do servidor: 5.6.24
 -- Versão do PHP: 5.6.8
 
@@ -63,25 +63,17 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `n_min` int(11) NOT NULL,
   `n_max` int(11) NOT NULL,
   `descricao` varchar(200) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` bigint(20) unsigned NOT NULL DEFAULT '0',
   `idlocal_evento` int(11) NOT NULL,
   `idcategoria_esportiva` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 --
 -- Fazendo dump de dados para tabela `evento`
 --
 
 INSERT INTO `evento` (`id_evento`, `nome`, `data`, `horario_inicial`, `horario_final`, `num_atual`, `privacidade`, `n_min`, `n_max`, `descricao`, `id_usuario`, `idlocal_evento`, `idcategoria_esportiva`) VALUES
-(46, 'Futsalsc', '2015-09-29', '03:02:00', '21:03:00', 0, '', 0, 0, '', 2147483647, 0, 0),
-(47, 'Futsalsc', '2015-10-29', '03:02:00', '21:03:00', 0, '', 0, 0, '', 2147483647, 0, 0),
-(48, 'Futsalsc', '2015-11-29', '03:02:00', '21:03:00', 0, '', 0, 0, '', 2147483647, 0, 0),
-(49, 'Futsalscd', '2015-11-29', '03:02:00', '21:03:00', 0, '', 0, 0, '', 2147483647, 0, 0),
-(50, 'Futsd', '2015-11-29', '03:02:00', '21:03:00', 0, '', 0, 0, '', 2147483647, 0, 0),
-(51, 'Futsde', '2015-11-29', '03:02:00', '21:03:00', 0, '', 0, 0, '', 2147483647, 0, 0),
-(52, 'Futsde1', '2015-11-29', '03:02:00', '21:03:00', 0, '', 0, 0, '', 2147483647, 0, 0),
-(53, 'Futsde11', '2015-11-29', '03:02:00', '21:03:00', 0, '', 0, 0, '', 2147483647, 0, 0),
-(54, 'Futsd', '2015-11-25', '03:02:00', '21:03:00', 0, '', 0, 0, '', 2147483647, 0, 0);
+(61, 'Babinha', '2015-09-24', '05:05:00', '03:04:00', 0, 'privado', 6, 8, 'Descreva regras, caracterÃ­sticas e/ou avisos para convidados...', 1036427679703001, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -115,7 +107,7 @@ INSERT INTO `local_evento` (`idlocal_evento`, `nome`, `local`, `numero`, `cidade
 --
 
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `id_usuario` int(10) unsigned NOT NULL,
+  `id_usuario` bigint(20) unsigned NOT NULL DEFAULT '0',
   `nome` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -124,8 +116,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome`) VALUES
-(0, ''),
-(4294967295, 'Cassio Aragao');
+(1036427679703001, 'Cassio Aragao');
 
 --
 -- Índices de tabelas apagadas
@@ -179,7 +170,7 @@ ALTER TABLE `convite`
 -- AUTO_INCREMENT de tabela `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id_evento` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+  MODIFY `id_evento` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT de tabela `local_evento`
 --

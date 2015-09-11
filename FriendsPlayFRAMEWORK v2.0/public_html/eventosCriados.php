@@ -1,7 +1,10 @@
+<?php session_start(); ?>
+
 <?php 
 include ("_Funcoes/FuncaoSelect.php");
-session_start();
-$consulta= select("evento","*", null, null, null);
+
+$id_usu = $_SESSION['FBID'];
+$consulta= select("evento","*", "WHERE id_usuario = '$id_usu'", null, null);
 
 ?>
 

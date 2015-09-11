@@ -47,7 +47,7 @@ if ( isset( $session ) ) {
       $_SESSION['AMIGOS'] = $amigos;
 
       
-      $consulta= select("usuario","id_usuario", "WHERE id_usuario = $fbid", null, null);
+      $consulta= select("usuario","id_usuario", "WHERE id_usuario = '$fbid'", null, null);
 
        if ($consulta == TRUE) {
          header("Location: criarEvento.php");
