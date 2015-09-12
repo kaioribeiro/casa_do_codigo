@@ -47,19 +47,19 @@ if ( isset( $session ) ) {
       $_SESSION['AMIGOS'] = $amigos;
 
       
-      $consulta= select("usuario","id_usuario", "WHERE id_usuario = '$fbid'", null, null);
+      // $consulta= select("usuario","id_usuario", "WHERE id_usuario = '$fbid'", null, null);
 
-       if ($consulta == TRUE) {
-         header("Location: criarEvento.php");
-       }else{
+      //  if ($consulta == TRUE) {
+      //    header("Location: ../google-login/index.php");
+      //  }else{
 
-         inserir(array("nome","id_usuario"), array($fbfullname,$fbid),'usuario');
+      //    inserir(array("nome","id_usuario"), array($fbfullname,$fbid),'usuario');
 
-         header("Location: criarEvento.php");
-       }
+      //    header("Location: ../google-login/index.php");
+      //  }
       
    /* ---- header location after session ----*/
-   //header("Location: http://localhost/friendsplay/FriendsPlay/index.php");
+   header("Location: ../google-login/index.php");
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);

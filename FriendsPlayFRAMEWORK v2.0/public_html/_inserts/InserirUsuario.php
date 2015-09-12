@@ -1,10 +1,25 @@
 <?php 
 
 include ("../_Funcoes/FuncaoInserir.php");
+include ("../_Funcoes/FuncaoSelectInsert.php");
 
-$id = $_SESSION['FBID'];
+$id_fb = $_SESSION['FBID'];
+$id_go = $_SESSION['id_google'];
+$email = $_SESSION['email'];
 $nome = $_SESSION['FULLNAME'];
 
-inserir(array("nome","id_usuario"), array($id,$nome),'usuario');
+
+//inserir(array("nome","id_usuario"), array($id,$nome),'usuario');
+
+$consulta= select("usuario","id_usuario", "WHERE id_usuario = '$id_fb' AND id_usuario_google = '$id_go'", null, null);
+
+       if ($consulta == TRUE) {
+         header("Location: ../../../google-login/index.php");
+       }else{
+
+       	inserir(array("nome","id_usuario","id_usuario_google", "email"), array($nome,$id_fb,$id_go,$email),'usuario');
+
+         header("Location: ../../../google-login/index.php");
+       }
 
  ?>
