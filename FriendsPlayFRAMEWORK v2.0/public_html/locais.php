@@ -92,7 +92,7 @@ $consulta= select("local_evento","*",null, null, null);
                     <th>Cidade</th>
                     <th>Estado</th>
                     <th>Numero</th>
-                    <th>Escolher</th>
+                    <th></th>
                 </tr>
 
                  <?php 
@@ -102,11 +102,11 @@ $consulta= select("local_evento","*",null, null, null);
                 <tr>
 
                     <td><?php echo $i?></td>
-                    <td><?php echo $consulta[$i]['nome'];?></td>
+                    <td><?php echo $consulta[$i]['local'];?></td>
                     <td><?php echo $consulta[$i]['cidade']; ?></td>
                     <td><?php echo $consulta[$i]['estado']; ?></td> 
                     <td><?php echo $consulta[$i]['numero']; ?></td> 
-                    <td><a href="editar_evento.php?id=<?php echo $consulta[$i]['id_evento']; ?>">Escolher</a></td>
+                    <td><a href="editar_evento.php?id=<?php echo $consulta[$i]['id_evento']; ?>"><?php echo $consulta[$i]['nome']; ?></a></td>
                 </tr>
                  <?php 
                                     }

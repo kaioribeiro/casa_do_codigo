@@ -65,6 +65,15 @@ session_start();
                     
 
                     <!-- Text input-->
+                            
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="nome">Nome:</label>  
+                                <div class="col-md-4">
+                                    <input id="nome" name="nome" type="text" placeholder="Nome do espaço" class="form-control input-md">
+
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="logradouro">Logradouro:</label>  
                                 <div class="col-md-4">
