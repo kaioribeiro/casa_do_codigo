@@ -67,7 +67,7 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
 
                 <!--Segunda Linha--> 
                 <div class="col-md-9 col-md-push-0">
-                    <h5>Menu > Eventos Criados</h5>
+                    <h5>Menu > Criar evento > Escolher evento</h5>
                     
                     <div class="form-group">
                         <label class="col-md-0 control-label" for="buscaLabel"></label>  
@@ -90,7 +90,7 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
                     <th>Data</th>
                     <th>Local</th>
                     <th>Nº de participantes</th>
-                    <th>Editar</th>
+                    <th>Selecionar</th>
                 </tr>
 
                  <?php 

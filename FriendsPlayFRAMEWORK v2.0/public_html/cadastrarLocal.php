@@ -32,7 +32,7 @@ session_start();
                 <!--Primeira Linha--> 
                 <div class="col-md-3 col-md-pull-1" id="col-lateral-direita">
                     
-                    <div class="dropdown">
+                    <div class="dropdown" id="botao-sair">
                         <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <span class="caret"></span>
                         </button>     
@@ -41,17 +41,17 @@ session_start();
 
                         </ul>
                     </div>
-                    <img src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
+                    <img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
 
 
-                    <mark><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
-                    <ul class="nav nav-pills nav-stacked">
+                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
+                    <ul id="menu-principal" class="nav nav-pills nav-stacked">
                         <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation" class="active"><a href="convites.php">Convites</a></li>
                         <li role="presentation"><a href="eventosCriados.php">Eventos criados</a></li>
                         <li role="presentation"><a href="partipacaoEventos.php">Participação em eventos</a></li>
                     </ul>
-                    <iframe name="janela-calendario" id="calendario" src="https://www.google.com/calendar/embed?src=86c4o9bhc1p9shjob2pcf7sbq4%40group.calendar.google.com&ctz=America/Fortaleza"></iframe>
+
                 </div>
 
                 <form action="_inserts/InserirLocal.php" method="post" class="form-horizontal">

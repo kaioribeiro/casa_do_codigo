@@ -14,6 +14,10 @@ div#col-lateral-direita iframe{
     
 }
 
+img#img-perfil, ul#menu-principal, mark#nome-de-usuario, div#botao-sair{
+    position: fixed;
+}
+
 div#rodape{
     text-align: center;
     margin: 40px auto 40px auto;
