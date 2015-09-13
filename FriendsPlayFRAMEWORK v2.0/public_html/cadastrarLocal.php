@@ -54,7 +54,7 @@ session_start();
                     <iframe name="janela-calendario" id="calendario" src="https://www.google.com/calendar/embed?src=86c4o9bhc1p9shjob2pcf7sbq4%40group.calendar.google.com&ctz=America/Fortaleza"></iframe>
                 </div>
 
-                <form action="_inserts/InserirEvento.php" method="post" class="form-horizontal">
+                <form action="_inserts/InserirLocal.php" method="post" class="form-horizontal">
                     <fieldset>
                 
                 <!--Segunda Linha--> 
@@ -77,7 +77,7 @@ session_start();
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="num">Número</label>  
                                 <div class="col-md-2">
-                                    <input id="num" name="num" type="text" placeholder="" class="form-control input-md">
+                                    <input id="num" name="num" type="number" placeholder="" class="form-control input-md">
 
                                 </div>
                             </div>

@@ -6,7 +6,7 @@ include ("../_Funcoes/FuncaoInserir.php");
 include ("../_Funcoes/FuncaoSelectInsert.php");
 //Perfil
 $nome = $_REQUEST['nome'];
-
+$modalidade = $_REQUEST['modalidade'];
 
 // //Logradouro
 // $local = $_REQUEST['nLocal'];
@@ -45,9 +45,9 @@ $descricao = $_REQUEST['descricao'];
  		
  	} else {
 		 inserir(array("nome", "data","horario_inicial","horario_final","n_min","n_max","privacidade",
-		 "descricao","id_usuario","id_usuario_google"),
+		 "descricao","id_usuario","id_usuario_google","modalidade"),
 
-		array($nome, $data, $hora, $hora_final, $numeroMinimo, $numeroMaximo, $privacidade, $descricao, $_SESSION['FBID'],$_SESSION['id_google'],),
+		array($nome, $data, $hora, $hora_final, $numeroMinimo, $numeroMaximo, $privacidade, $descricao, $_SESSION['FBID'],$_SESSION['id_google'],$modalidade,),
 	  	"evento");
  		 header("Location: ../eventosCriados.php");	
  		 }

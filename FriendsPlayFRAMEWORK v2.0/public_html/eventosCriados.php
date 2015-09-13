@@ -4,7 +4,8 @@
 include ("_Funcoes/FuncaoSelect.php");
 
 $id_usu = $_SESSION['FBID'];
-$consulta= select("evento","*", "WHERE id_usuario = '$id_usu'", null, null);
+$id_goo = $_SESSION['id_google'];
+$consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_google = '$id_goo'", null, null);
 
 ?>
 
@@ -15,7 +16,7 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu'", null, null);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
-        
+            
         
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Friend's Play</title>
@@ -83,6 +84,7 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu'", null, null);
                     <h3>Lista de eventos que criei:</h3>
                     <table class="table table-bordered">
                         <tbody><tr>
+                        
                     <th>Nº</th>
                     <th>Nome do Evento</th>
                     <th>Data</th>
@@ -96,6 +98,7 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu'", null, null);
                         for ($i=0; $i < count($consulta); $i++) { 
                  ?>
                 <tr>
+
                     <td><?php echo $i?></td>
                     <td><?php echo $consulta[$i]['nome'];?></td>
                     <td><?php echo $consulta[$i]['data']; ?></td>
