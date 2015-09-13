@@ -1,9 +1,7 @@
 <?php
 include ("_Funcoes/FuncaoInserirFB.php");
 include ("_Funcoes/FuncaoSelect.php"); 
-
 session_start();
-
 // added in v4.0.0
 require_once 'autoload.php';
 use Facebook\FacebookSession;
@@ -39,29 +37,23 @@ if ( isset( $session ) ) {
       $fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
       $femail = $graphObject->getProperty('email');    // To Get Facebook email ID
        $amigos = $graphObject->getProperty('friends');
-
   /* ---- Session Variables -----*/
       $_SESSION['FBID'] = $fbid;           
         $_SESSION['FULLNAME'] = $fbfullname;
       $_SESSION['EMAIL'] =  $femail;
       $_SESSION['AMIGOS'] = $amigos;
-
       
       // $consulta= select("usuario","id_usuario", "WHERE id_usuario = '$fbid'", null, null);
-
       //  if ($consulta == TRUE) {
       //    header("Location: ../google-login/index.php");
       //  }else{
-
       //    inserir(array("nome","id_usuario"), array($fbfullname,$fbid),'usuario');
-
       //    header("Location: ../google-login/index.php");
       //  }
       
    /* ---- header location after session ----*/
-   header("Location: ../google-login/index.php");
+   header("Location: google-login/index.php");
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);
 }
-?>

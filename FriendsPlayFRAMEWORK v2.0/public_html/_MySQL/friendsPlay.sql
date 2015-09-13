@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 11/09/2015 às 13:55
+-- Tempo de geração: 13/09/2015 às 04:03
 -- Versão do servidor: 5.6.24
 -- Versão do PHP: 5.6.8
 
@@ -65,15 +65,17 @@ CREATE TABLE IF NOT EXISTS `evento` (
   `descricao` varchar(200) DEFAULT NULL,
   `id_usuario` bigint(20) unsigned NOT NULL DEFAULT '0',
   `idlocal_evento` int(11) NOT NULL,
-  `idcategoria_esportiva` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
+  `idcategoria_esportiva` int(11) NOT NULL,
+  `id_usuario_google` bigint(20) unsigned DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
 --
 -- Fazendo dump de dados para tabela `evento`
 --
 
-INSERT INTO `evento` (`id_evento`, `nome`, `data`, `horario_inicial`, `horario_final`, `num_atual`, `privacidade`, `n_min`, `n_max`, `descricao`, `id_usuario`, `idlocal_evento`, `idcategoria_esportiva`) VALUES
-(61, 'Babinha', '2015-09-24', '05:05:00', '03:04:00', 0, 'privado', 6, 8, 'Descreva regras, caracterÃ­sticas e/ou avisos para convidados...', 1036427679703001, 0, 0);
+INSERT INTO `evento` (`id_evento`, `nome`, `data`, `horario_inicial`, `horario_final`, `num_atual`, `privacidade`, `n_min`, `n_max`, `descricao`, `id_usuario`, `idlocal_evento`, `idcategoria_esportiva`, `id_usuario_google`) VALUES
+(62, 'Babinha', '2015-09-16', '03:04:00', '03:06:00', 0, 'privado', 9, 12, 'Descreva regras, caracterÃ­sticas e/ou avisos para convidados...', 1036427679703001, 0, 0, 18446744073709551615),
+(63, 'Futsall', '2015-09-17', '03:04:00', '03:06:00', 0, 'privado', 9, 12, 'Descreva regras, caracterÃ­sticas e/ou avisos para convidados...', 1036427679703001, 0, 0, 18446744073709551615);
 
 -- --------------------------------------------------------
 
@@ -108,15 +110,17 @@ INSERT INTO `local_evento` (`idlocal_evento`, `nome`, `local`, `numero`, `cidade
 
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `nome` varchar(45) NOT NULL
+  `nome` varchar(45) NOT NULL,
+  `id_usuario_google` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `email` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Fazendo dump de dados para tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nome`) VALUES
-(1036427679703001, 'Cassio Aragao');
+INSERT INTO `usuario` (`id_usuario`, `nome`, `id_usuario_google`, `email`) VALUES
+(1036427679703001, 'Cassio Aragao', 18446744073709551615, 'cassioecomp@gmail.com');
 
 --
 -- Índices de tabelas apagadas
@@ -170,7 +174,7 @@ ALTER TABLE `convite`
 -- AUTO_INCREMENT de tabela `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id_evento` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
+  MODIFY `id_evento` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT de tabela `local_evento`
 --

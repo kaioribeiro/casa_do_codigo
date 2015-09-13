@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 include ("../_Funcoes/FuncaoInserir.php");
 include ("../_Funcoes/FuncaoSelectInsert.php");
@@ -11,15 +12,15 @@ $nome = $_SESSION['FULLNAME'];
 
 //inserir(array("nome","id_usuario"), array($id,$nome),'usuario');
 
-$consulta= select("usuario","id_usuario", "WHERE id_usuario = '$id_fb' AND id_usuario_google = '$id_go'", null, null);
+$consulta= select("usuario","", "WHERE id_usuario = $id_fb AND id_usuario_google = $id_go", null, null);
 
        if ($consulta == TRUE) {
-         header("Location: ../../../google-login/index.php");
+         header("Location: ../eventosCriados.php");
        }else{
 
        	inserir(array("nome","id_usuario","id_usuario_google", "email"), array($nome,$id_fb,$id_go,$email),'usuario');
 
-         header("Location: ../../../google-login/index.php");
+         header("Location: ../eventosCriados.php");
        }
 
  ?>

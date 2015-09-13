@@ -45,12 +45,12 @@ $descricao = $_REQUEST['descricao'];
  		
  	} else {
 		 inserir(array("nome", "data","horario_inicial","horario_final","n_min","n_max","privacidade",
-		 "descricao","id_usuario"),
+		 "descricao","id_usuario","id_usuario_google"),
 
-		array($nome, $data, $hora, $hora_final, $numeroMinimo, $numeroMaximo, $privacidade, $descricao, $_SESSION['FBID'],),
+		array($nome, $data, $hora, $hora_final, $numeroMinimo, $numeroMaximo, $privacidade, $descricao, $_SESSION['FBID'],$_SESSION['id_google'],),
 	  	"evento");
- 		echo "entrou no else";
- 	}
+ 		 header("Location: ../eventosCriados.php");	
+ 		 }
 	
 	
  }else{
