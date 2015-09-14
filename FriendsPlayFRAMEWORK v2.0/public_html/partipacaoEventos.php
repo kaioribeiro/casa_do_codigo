@@ -45,7 +45,7 @@ session_start();
 
 
                     <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
-                    <ul id="menu-principal" class="nav nav-pills nav-stacked">
+                    <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
                         <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>
                         <li role="presentation"><a href="eventosCriados.php">Eventos criados</a></li>

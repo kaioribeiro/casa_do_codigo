@@ -45,9 +45,9 @@ $descricao = $_REQUEST['descricao'];
  		
  	} else {
 		 inserir(array("nome", "data","horario_inicial","horario_final","n_min","n_max","privacidade",
-		 "descricao","id_usuario","id_usuario_google","modalidade"),
+		 "descricao","id_usuario","id_usuario_google","modalidade","id_relacao"),
 
-		array($nome, $data, $hora, $hora_final, $numeroMinimo, $numeroMaximo, $privacidade, $descricao, $_SESSION['FBID'],$_SESSION['id_google'],$modalidade,),
+		array($nome, $data, $hora, $hora_final, $numeroMinimo, $numeroMaximo, $privacidade, $descricao, $_SESSION['FBID'],$_SESSION['id_google'],$modalidade,$_SESSION['id_local'],),
 	  	"evento");
  		 header("Location: ../eventosCriados.php");	
  		 }

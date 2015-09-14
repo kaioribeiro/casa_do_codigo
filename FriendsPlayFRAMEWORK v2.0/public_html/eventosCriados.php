@@ -7,6 +7,7 @@ $id_usu = $_SESSION['FBID'];
 $id_goo = $_SESSION['id_google'];
 $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_google = '$id_goo'", null, null);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +57,7 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
 
                     <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
 
-                    <ul id="menu-principal" class="nav nav-pills nav-stacked">
+                    <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
                         <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>
                         <li role="presentation" class="active" ><a href="eventosCriados.php">Eventos criados</a></li>
@@ -95,7 +96,13 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
 
                  <?php 
                     if($consulta == true){
+                           
                         for ($i=0; $i < count($consulta); $i++) { 
+
+                            //Fazer uma subconsulta para retornar o nome do local que o evento participa
+                            $id_l = $consulta[$i]['id_relacao'];
+                            $consulta_local = select("local_evento","nome","WHERE id_local = $id_l", null, null);
+                            
                  ?>
                 <tr>
 
@@ -103,7 +110,7 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
                     <td><?php echo $consulta[$i]['nome'];?></td>
                     <td><?php echo $consulta[$i]['data']; ?></td>
                     <td><?php echo "preencher"; ?></td> 
-                    <td><?php echo "preencher"; ?></td> 
+                    <td><?php echo ""; ?></td> 
                     <td><a href="editar_evento.php?id=<?php echo $consulta[$i]['id_evento']; ?>">Alterar</a></td>
                 </tr>
                  <?php 

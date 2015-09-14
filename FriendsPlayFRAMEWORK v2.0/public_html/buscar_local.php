@@ -3,9 +3,10 @@
 <?php 
 include ("_Funcoes/FuncaoSelect.php");
 
-$id_usu = $_SESSION['FBID'];
-$id_goo = $_SESSION['id_google'];
-$consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_google = '$id_goo'", null, null);
+// $id_usu = $_SESSION['FBID'];
+// $id_goo = $_SESSION['id_google'];
+$buscar = $_REQUEST['buscaLabel'];
+$consulta= select("local_evento","*","WHERE nome LIKE '%$buscar%'", null, null);
 
 ?>
 
@@ -65,10 +66,15 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
         
                 </div>
 
+
                 <!--Segunda Linha--> 
                 <div class="col-md-9 col-md-push-0">
-                    <h5>Menu > Criar evento > Escolher evento</h5>
+                    <h5>Menu > Eventos Criados</h5>
+
                     
+                    <h3>Lista de eventos que criei:</h3>
+
+                    <form action="buscar_local.php" method="post" >
                     <div class="form-group">
                         <label class="col-md-0 control-label" for="buscaLabel"></label>  
                             
@@ -78,19 +84,17 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
                             <label class="col-md-4 control-label" for="botaoBuscar"></label>
                             
                         </div> 
-                        <button id="botaoBuscar" name="botaoBuscar" class="btn btn-primary">Buscar</button>
+                        <button type="submit" id="botaoBuscar" name="botaoBuscar" class="btn btn-primary">Buscar</button>
+                        
                     </div>
-                    
-                    <h3>Lista de eventos que criei:</h3>
+                    </form>
                     <table class="table table-bordered">
                         <tbody><tr>
-                        
-                    <th>Nº</th>
-                    <th>Nome do Evento</th>
-                    <th>Data</th>
-                    <th>Local</th>
-                    <th>Nº de participantes</th>
-                    <th>Selecionar</th>
+                    <th>Selecionar</th>   
+                    <th>Logradouro</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>Numero</th>
                 </tr>
 
                  <?php 
@@ -99,13 +103,12 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
                  ?>
                 <tr>
 
-                    <td><?php echo $i?></td>
-                    <td><?php echo $consulta[$i]['nome'];?></td>
-                    <td><?php echo $consulta[$i]['data']; ?></td>
-                    <td><?php echo "preencher"; ?></td> 
-                    <td><?php echo "preencher"; ?></td> 
-                    <td><a href="editar_evento.php?id=<?php echo $consulta[$i]['id_evento']; ?>">Alterar</a></td>
-                </tr>
+                    <td><a href="criarEvento.php?id_local=<?php echo $consulta[$i]['id_local']; ?>"><?php echo $consulta[$i]['nome']; ?></a></td>                   
+                    <td><?php echo $consulta[$i]['local'];?></td>
+                    <td><?php echo $consulta[$i]['cidade']; ?></td>
+                    <td><?php echo $consulta[$i]['estado']; ?></td> 
+                    <td><?php echo $consulta[$i]['numero']; ?></td> 
+
                  <?php 
                                     }
                         }else{

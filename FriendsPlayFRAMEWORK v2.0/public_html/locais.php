@@ -42,7 +42,7 @@ $consulta= select("local_evento","*",null, null, null);
                 <!--Primeira Linha--> 
                 <div class="col-md-3 col-md-pull-1" id="col-lateral-direita">
 
-                    <div class="dropdown">
+                    <div class="dropdown" id="botao-sair">
                             <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <span class="caret"></span>
                             </button>     
@@ -51,48 +51,52 @@ $consulta= select("local_evento","*",null, null, null);
 
                         </ul>
                     </div>
-                    <img src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
+                    <img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
                         
 
 
-                    <mark><h2>Nome do Usuário</h2></mark>
+                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
 
-                    <ul class="nav nav-pills nav-stacked">
+                    <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
                         <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>
                         <li role="presentation" class="active" ><a href="eventosCriados.php">Eventos criados</a></li>
                         <li role="presentation"><a href="partipacaoEventos.php">Participação em eventos</a></li>
                     </ul>
-                    <iframe name="janela-calendario" id="calendario" src="https://www.google.com/calendar/embed?src=86c4o9bhc1p9shjob2pcf7sbq4%40group.calendar.google.com&ctz=America/Fortaleza"></iframe>
+        
                 </div>
 
                 <!--Segunda Linha--> 
                 <div class="col-md-9 col-md-push-0">
                     <h5>Menu > Eventos Criados</h5>
-                    <form>
+
+                    
+                    <h3>Lista de eventos que criei:</h3>
+
+                    
                     <div class="form-group">
+                    <form action="buscar_local.php" method="post" >
                         <label class="col-md-0 control-label" for="buscaLabel"></label>  
                             
                         <div class="col-md-4">
                             
                             <input id="buscaLabel" name="buscaLabel" type="text" placeholder="🔍 Buscar" class="form-control input-md">
                             <label class="col-md-4 control-label" for="botaoBuscar"></label>
+                        
                             
                         </div> 
                         <button type="submit" id="botaoBuscar" name="botaoBuscar" class="btn btn-primary">Buscar</button>
-                        </form>
+                        
                     </div>
-                    
-                    <h3>Lista de eventos que criei:</h3>
+                    </form>
                     <table class="table table-bordered">
                         <tbody><tr>
-                        
-                    <th>N°</th>
-                    <th>Nome do local</th>
+
+                    <th>Selecionar</th>   
+                    <th>Logradouro</th>
                     <th>Cidade</th>
                     <th>Estado</th>
                     <th>Numero</th>
-                    <th></th>
                 </tr>
 
                  <?php 
@@ -101,12 +105,12 @@ $consulta= select("local_evento","*",null, null, null);
                  ?>
                 <tr>
 
-                    <td><?php echo $i?></td>
+                    <td><a href="criarEvento.php?id_local=<?php echo $consulta[$i]['id_local']; ?>"><?php echo $consulta[$i]['nome']; ?></a></td>                   
                     <td><?php echo $consulta[$i]['local'];?></td>
                     <td><?php echo $consulta[$i]['cidade']; ?></td>
                     <td><?php echo $consulta[$i]['estado']; ?></td> 
                     <td><?php echo $consulta[$i]['numero']; ?></td> 
-                    <td><a href="editar_evento.php?id=<?php echo $consulta[$i]['id_evento']; ?>"><?php echo $consulta[$i]['nome']; ?></a></td>
+
                 </tr>
                  <?php 
                                     }

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 session_start();
+$_SESSION['id_local'] = $_REQUEST['id_local'];
+
 ?>
 <html lang="en">
     <head>
@@ -41,11 +43,12 @@ session_start();
 
                         </ul>
                     </div>
-                    <img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
+                    
                     
                     <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
                     
-<ul id="menu-principal" class="nav nav-pills nav-stacked">
+<ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
+                        <li><img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150" ></li>
                         <li role="presentation" class="active"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>
                         <li role="presentation"><a href="eventosCriados.php">Eventos criados</a></li>
@@ -93,7 +96,7 @@ session_start();
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="cLocal"></label>
                                 <div class="col-md-5">
-                                    <a href="cadastrarLocal.php">Escolha local para o seu evento!</a>
+                                    <a href="locais.php">Escolha local para o seu evento!</a>
                                 </div>
                             </div>
                             <!-- Text input-->

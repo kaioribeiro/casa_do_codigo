@@ -4,7 +4,7 @@ include ("../_Funcoes/FuncaoInserir.php");
 include ("../_Funcoes/FuncaoSelectInsert.php");
  //Logradouro
  $nome = $_REQUEST['nome'];
- $Logradouro = $_REQUEST['logradouro']
+ $logradouro = $_REQUEST['logradouro'];
  $numeroDoLocal = $_REQUEST['num'];
  $cidade = $_REQUEST['cidade'];
  $estado = $_REQUEST['estado'];
