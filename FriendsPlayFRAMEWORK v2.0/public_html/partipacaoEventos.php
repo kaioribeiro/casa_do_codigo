@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
-
-session_start(); 
+session_start();
 ?>
 <html lang="en">
     <head>
@@ -31,20 +30,20 @@ session_start();
 
                 <!--Primeira Linha--> 
                 <div class="col-md-3 col-md-pull-1" id="col-lateral-direita">
-                    
+
                     <div class="dropdown" id="botao-sair">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <span class="caret"></span>
-                            </button>     
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        </button>     
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                             <li><a href="logout.php">Sair</a></li>
 
                         </ul>
                     </div>
-<img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
+                    <img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
 
 
-                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
+                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME']; ?></h2></mark>
                     <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
                         <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>
@@ -58,9 +57,52 @@ session_start();
                 <div class="col-md-9 col-md-push-0">
                     <h5>Menu > Participação em Eventos</h5>
                     <h3>Eventos em que participo:</h3>
+                    <!-- Multiple Checkboxes -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="convidarAmigos">Amigos:</label>
+                        <div class="col-md-4">
+                            <div class="checkbox">
+                                <label for="convidarAmigos-0">
+                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-0" value="1">
+                                    amigo 1
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label for="convidarAmigos-1">
+                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-1" value="2">
+                                    amigo 2
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label for="convidarAmigos-2">
+                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-2" value="3">
+                                    amigo 3
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label for="convidarAmigos-3">
+                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-3" value="4">
+                                    amigo 4
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label for="convidarAmigos-4">
+                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-4" value="5">
+                                    amigo 5
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
-
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="selecionarAmigos"></label>
+                        <div class="col-md-4">
+                            <button id="selecionarAmigos" name="selecionarAmigos" class="btn btn-primary">Selecionar amigos</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
             <div class="row" id="rodape">
                 Copyright 2015 - by MangSoftware

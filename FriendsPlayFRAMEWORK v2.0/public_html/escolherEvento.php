@@ -91,6 +91,7 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
                     <th>Local</th>
                     <th>Nº de participantes</th>
                     <th>Selecionar</th>
+                    <th>Convidar amigo</th>
                 </tr>
 
                  <?php 
@@ -105,6 +106,7 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
                     <td><?php echo "preencher"; ?></td> 
                     <td><?php echo "preencher"; ?></td> 
                     <td><a href="editar_evento.php?id=<?php echo $consulta[$i]['id_evento']; ?>">Alterar</a></td>
+                    <td><a href="participacaoEventos.php">preencher</a></td> 
                 </tr>
                  <?php 
                                     }
