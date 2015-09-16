@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <?php
 session_start();
+
+include ("_Funcoes/FuncaoSelect.php");
+
 $_SESSION['id_local'] = $_REQUEST['id_local'];
+
+$aux = $_SESSION['edt_evento'];
+$consulta= select("evento","*", "WHERE id_evento = '$aux'", null, null);
 
 ?>
 <html lang="en">
@@ -59,18 +65,25 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
 
                 <!--Segunda Linha--> 
                 <div class="col-md-9 col-md-push-0">
-                    <form action="_inserts/InserirEvento.php" method="post" class="form-horizontal">
+                     <?php 
+                            //Verificar se o objeto foi retornado
+                        if($consulta == true){
+                                for ($i=0; $i < count($consulta); $i++) { 
+                                    
+                    ?>
+                    <form action="_update/update_evento.php" method="post" class="form-horizontal">
                         <fieldset>
 
                             <!-- Form Name -->
-                            <legend>Crie o seu Evento</legend>
-                            <h5>Menu > Criar Evento</h5>
+                            <legend>Editar Evento</legend>
+                            <h5>Menu > Editar Evento</h5>
+                            
 
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="nome">Nome:</label>  
                                 <div class="col-md-4">
-                                    <input id="nome" name="nome" type="text" placeholder="Nome do Evento" class="form-control input-md" required="">
+                                    <input id="nome" name="nome" type="text" placeholder="Nome do Evento" class="form-control input-md" value="<?php echo $consulta[$i]['nome']; ?>" required="">
 
                                 </div>
                             </div>
@@ -81,7 +94,7 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="modalidade">Modalidade:</label>  
                                 <div class="col-md-4">
-                                    <input id="modalidade" name="modalidade" type="text" placeholder="Fotebol, Dama..." class="form-control input-md">
+                                    <input id="modalidade" value="<?php echo $consulta[$i]['modalidade']; ?>"  name="modalidade" type="text" placeholder="Fotebol, Dama..." class="form-control input-md">
 
                                 </div>
                             </div>
@@ -93,17 +106,17 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                             
 
                             <!-- Button -->
-                            <!-- <div class="form-group">
+                           <!--  <div class="form-group">
                                 <label class="col-md-4 control-label" for="cLocal"></label>
                                 <div class="col-md-5">
-                                    <a href="locais.php">Escolha local para o seu evento!</a>
+                                    <a href="locais.php">Escolha um novo local para o evento!</a>
                                 </div>
                             </div> -->
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="data">Data:</label>  
                                 <div class="col-md-4">
-                                    <input id="data" name="data" type="date" placeholder="Data do evento" class="form-control input-md">
+                                    <input id="data" name="data" value="<?php echo $consulta[$i]['data']; ?>"  type="date" placeholder="Data do evento" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -113,7 +126,7 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                                 <label class="col-md-4 control-label" for="hora">Hora inicial:</label>  
                                 
                                 <div class="col-md-4">
-                                    <input id="hora" name="hora" type="time" placeholder="Hora do evento" class="form-control input-md">
+                                    <input id="hora" name="hora" value="<?php echo $consulta[$i]['horario_inicial']; ?>"  type="time" placeholder="Hora do evento" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -123,7 +136,7 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="hora">Hora final:</label>  
                                 <div class="col-md-4">
-                                    <input id="horaf" name="horaf" type="time" placeholder="Hora do evento" class="form-control input-md">
+                                    <input id="horaf" name="horaf" value="<?php echo $consulta[$i]['horario_final']; ?>"  type="time" placeholder="Hora do evento" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -132,7 +145,7 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="numMinimo">Nº mínimo de participantes:</label>  
                                 <div class="col-md-2">
-                                    <input id="numMinimo" name="nNumMin" type="number" placeholder="" class="form-control input-md">
+                                    <input id="numMinimo" value="<?php echo $consulta[$i]['n_min']; ?>" name="nNumMin" type="number" placeholder="" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -141,7 +154,7 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="numMaximo">Nº máximo de participantes:</label>  
                                 <div class="col-md-2">
-                                    <input id="numMaximo" name="nNumMax" type="number" placeholder="" class="form-control input-md">
+                                    <input id="numMaximo" value="<?php echo $consulta[$i]['n_max']; ?>"  name="nNumMax" type="number" placeholder="" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -152,13 +165,13 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                                 <div class="col-md-4">
                                     <div class="radio">
                                         <label for="privacidade-0">
-                                            <input type="radio" name="privacidade" id="privacidade" value="publico" checked="checked">
+                                            <input type="radio" name="privacidade" id="privacidade-0" value="publico" checked="checked">
                                             Público
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label for="privacidade-1">
-                                            <input type="radio" name="privacidade" id="privacidade" value="privado">
+                                            <input type="radio" name="privacidade" id="privacidade-1" value="privado">
                                             Privado
                                         </label>
                                     </div>
@@ -169,13 +182,18 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="descricao">Descrição:</label>
                                 <div class="col-md-4">                     
-                                    <textarea class="form-control" id="descricao" name="descricao">Descreva regras, características e/ou avisos para convidados...</textarea>
+                                    <textarea class="form-control"  id="descricao" name="descricao"><?php echo $consulta[$i]['descricao']; ?>" </textarea>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="margin-left: 650px; margin-top: 1%;">Cadastrar Evento</button>
                         </fieldset>
                     </form>
-
+                    <?php 
+                                }
+                            }else{
+                                echo "Nunhum dado encontrado!";
+                            }
+                     ?>
 
 
 
