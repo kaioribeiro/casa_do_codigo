@@ -6,7 +6,7 @@ include ("_Funcoes/FuncaoSelect.php");
 $id_usu = $_SESSION['FBID'];
 $id_goo = $_SESSION['id_google'];
 //$consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_google = '$id_goo'", null, null);
-$consulta= select("evento","*",null,null,null);
+$consulta= select("evento","*","WHERE id_usuario = '$id_usu' AND id_usuario_google = '$id_goo'" ,null,null);
 
 ?>
 

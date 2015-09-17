@@ -1,6 +1,11 @@
+
 <!DOCTYPE html>
 <?php
 session_start();
+
+require_once("_Funcoes/FuncaoSelect.php");
+//require_once ("fbconfig.php");
+$consulta = select("usuario","*", null, null, null);
 ?>
 <html lang="en">
     <head>
@@ -57,6 +62,13 @@ session_start();
                 <div class="col-md-9 col-md-push-0">
                     <h5>Menu > Participação em Eventos</h5>
                     <h3>Eventos em que participo:</h3>
+
+                     <?php 
+                    if($consulta == true){
+                         for ($i=0; $i < count($consulta); $i++) {
+                        //     $aux =  getAmigo($consulta[$i]['id_usuario']);
+                        //     if($consulta[$i]['id_usuario'] == $aux){
+                    ?>
                     <!-- Multiple Checkboxes -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="convidarAmigos">Amigos:</label>
@@ -64,36 +76,18 @@ session_start();
                             <div class="checkbox">
                                 <label for="convidarAmigos-0">
                                     <input type="checkbox" name="convidarAmigos" id="convidarAmigos-0" value="1">
-                                    amigo 1
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="convidarAmigos-1">
-                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-1" value="2">
-                                    amigo 2
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="convidarAmigos-2">
-                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-2" value="3">
-                                    amigo 3
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="convidarAmigos-3">
-                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-3" value="4">
-                                    amigo 4
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="convidarAmigos-4">
-                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-4" value="5">
-                                    amigo 5
+                                    <?php echo $consulta[$i]['nome']; ?>
                                 </label>
                             </div>
                         </div>
                     </div>
-
+                    <?php               
+                            // }else{ echo "nenhum usuario encontrado"; }
+                                    }
+                        }else{
+                            echo "Nunhum dado encontrado!";
+                    }
+                 ?>
                     <!-- Button -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="selecionarAmigos"></label>

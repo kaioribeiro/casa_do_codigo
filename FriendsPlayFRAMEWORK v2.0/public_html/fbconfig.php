@@ -1,6 +1,6 @@
 <?php
-include ("_Funcoes/FuncaoInserirFB.php");
-include ("_Funcoes/FuncaoSelect.php"); 
+include("_Funcoes/FuncaoInserirFB.php");
+include("_Funcoes/FuncaoSelect.php"); 
 session_start();
 // added in v4.0.0
 require_once 'autoload.php';
@@ -56,4 +56,15 @@ if ( isset( $session ) ) {
 } else {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);
+
+function getAmigo($id){
+
+   $request = new FacebookRequest( $session, 'GET', '/me/friends/'.$id );
+   $response = $request->execute();
+  
+  $graphObject = $response->getGraphObject();
+  return  $fb_id_amigo = $graphObject -> getProperty('id');
+
+}
+
 }

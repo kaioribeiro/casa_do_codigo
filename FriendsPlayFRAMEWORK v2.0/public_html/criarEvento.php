@@ -152,13 +152,13 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                                 <div class="col-md-4">
                                     <div class="radio">
                                         <label for="privacidade-0">
-                                            <input type="radio" name="privacidade" id="privacidade" value="publico" checked="checked">
+                                            <input type="radio" name="privacidade" id="privacidade-0" value="publico" checked="checked">
                                             Público
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label for="privacidade-1">
-                                            <input type="radio" name="privacidade" id="privacidade" value="privado">
+                                            <input type="radio" name="privacidade" id="privacidade-1" value="privado">
                                             Privado
                                         </label>
                                     </div>
