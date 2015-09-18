@@ -2,6 +2,10 @@
 <?php
 
 session_start(); 
+
+include ("_Funcoes/FuncaoSelect.php");
+
+$consulta = select("convite","*","WHERE id_usuario = $_SESSION[FBID]",null,null)
 ?>
 <html lang="en">
     <head>
@@ -55,11 +59,64 @@ session_start();
                 </div>
 
                 <!--Segunda Linha--> 
-                <div class="col-md-9 col-md-push-0">
-                    <h5>Menu > Convites</h5>
+               <div class="col-md-9 col-md-push-0">
+                    <h5>Menu > Meus convites</h5>
+                    
+                    <div class="form-group">
+                        <label class="col-md-0 control-label" for="buscaLabel"></label>  
+                            
+                        <button id="botaoBuscar" name="botaoBuscar" class="btn btn-primary">Criar convite</button>
+                    </div>
+                    
                     <h3>Lista de convites:</h3>
+                    <table class="table table-bordered">
+                        <tbody><tr>
+                        
+                    <th>Nº</th>
+                    <th>Nome do Evento</th>
+                    <th>Data</th>
+                    <th>Local</th>
+                    <th>Nº de participantes</th>
+                    <th>Aceitar</th>
+                </tr>
 
+                 <?php 
+                    if($consulta == true){
+                           
+                        for ($i=0; $i < count($consulta); $i++) { 
+                            $convite = $consulta[$i]['id_evento'];
+                            //bryalmeidaecomp@yahoo.com.br
+                            //Fazer uma subconsulta para retornar o nome do local que o evento participa
+                            
+                            $consulta_evento =  select("evento","*","WHERE id_evento = '$convite'", null, null);
+                            
+                            $id_l = $consulta_evento[0]['id_relacao'];
+                            $consulta_local = select("local_evento","*","WHERE id_local = '$id_l'", null, null);
 
+                            //A cada nova consulta no banco de dados eh retornado um Array novo. Por isso
+                            //a coluna 1 deve ter o valor sempre 0, para que ele não pegue valores que não existem
+                            
+                            $local[$i] = (string) $consulta_local[0]['nome'];
+                            $nomeEvento[$i] = (string) $consulta_evento[0]['nome'];
+                 ?>
+                <tr>
+
+                    <td><?php echo $i?></td>
+                    <td><?php echo $nomeEvento[$i];?></td>
+                    <td><?php echo $consulta_evento[$i]['data']; ?></td>
+                    <td><?php echo $local[$i]; ?></td> 
+                    <td><?php echo "preencher"; ?></td> 
+                    <td><a href="edt_locais.php?id=<?php echo $consulta[$i]['estatus']; ?>">Aceitar</a></td>
+                </tr>
+                 <?php 
+                            $consulta_local = null;
+                                    }
+                        }else{
+                            echo "Nunhum dado encontrado!";
+                    }
+                 ?>
+            </tbody>
+                    </table>
                 </div>
 
             </div>
