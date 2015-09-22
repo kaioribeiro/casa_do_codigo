@@ -142,9 +142,10 @@ $_SESSION['id_local'] = $_REQUEST['id_local'];
                                 <label class="col-md-4 control-label" for="numMaximo">Nº máximo de participantes:</label>  
                                 <div class="col-md-2">
                                     <input id="numMaximo" name="nNumMax" type="number" placeholder="" class="form-control input-md">
-
+                                    
                                 </div>
                             </div>
+                                           
 
                             <!-- Multiple Radios -->
                             <div class="form-group">
