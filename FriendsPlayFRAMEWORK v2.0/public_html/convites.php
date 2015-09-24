@@ -85,7 +85,6 @@ $consulta = select("convite","*","WHERE id_usuario = $_SESSION[FBID]",null,null)
                            
                         for ($i=0; $i < count($consulta); $i++) { 
                             $convite = $consulta[$i]['id_evento'];
-                            //bryalmeidaecomp@yahoo.com.br
                             //Fazer uma subconsulta para retornar o nome do local que o evento participa
                             
                             $consulta_evento =  select("evento","*","WHERE id_evento = '$convite'", null, null);
@@ -106,7 +105,7 @@ $consulta = select("convite","*","WHERE id_usuario = $_SESSION[FBID]",null,null)
                     <td><?php echo $consulta_evento[$i]['data']; ?></td>
                     <td><?php echo $local[$i]; ?></td> 
                     <td><?php echo "preencher"; ?></td> 
-                    <td><a href="edt_locais.php?id=<?php echo $consulta[$i]['estatus']; ?>">Aceitar</a></td>
+                    <td><a href="verificar_antes.php?id=<?php echo $consulta_evento[0]['id_evento']; ?>">Aceitar</a></td>
                 </tr>
                  <?php 
                             $consulta_local = null;
