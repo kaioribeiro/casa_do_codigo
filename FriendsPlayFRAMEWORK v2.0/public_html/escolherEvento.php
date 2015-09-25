@@ -100,7 +100,9 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
                  ?>
                 <tr>
 
-                    <td><?php echo $i?></td>
+                 
+
+                    <td><?php echo $i;?></td>
                     <td><?php echo $consulta[$i]['nome'];?></td>
                     <td><?php echo $consulta[$i]['data']; ?></td>
                     <td><?php echo "preencher"; ?></td> 

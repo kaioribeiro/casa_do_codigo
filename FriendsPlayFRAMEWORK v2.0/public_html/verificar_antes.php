@@ -2,8 +2,10 @@
 <?php
 session_start();
 
+
 include ("_Funcoes/FuncaoSelect.php");
 
+$id_convite = $_REQUEST['id_convite'];
 $id = $_REQUEST['id'];
 $consulta= select("evento","*", "WHERE id_evento = '$id'", null, null);
 
@@ -154,14 +156,13 @@ $consulta= select("evento","*", "WHERE id_evento = '$id'", null, null);
                                      <p class="navbar-text"><?php echo $consulta[$i]['descricao']; ?></p>
                                 </div>
                             </div></p>
-                                <p><a class="btn btn-primary btn-lg" href="_inserts/inserirConvite.php?id=<?php $id?>" role="button">Learn more</a></p>
+                                <p><a class="btn btn-primary btn-lg" href="_update/update_convite.php?id_convite= <?php echo $id_convite?> " role="button">Learn more</a></p>
                             </div>
                            
                             <!-- Button Drop Down -->
 
                             <!-- Text input-->
                             
-                            <button type="submit" class="btn btn-primary" style="margin-left: 650px; margin-top: 1%;">Aceitar</button>
                         </fieldset>
                     </form>
                     <?php 

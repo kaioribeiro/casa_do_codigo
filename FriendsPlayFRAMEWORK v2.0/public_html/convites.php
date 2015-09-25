@@ -4,8 +4,10 @@
 session_start(); 
 
 include ("_Funcoes/FuncaoSelect.php");
-
-$consulta = select("convite","*","WHERE id_usuario = $_SESSION[FBID]",null,null)
+$estatus_true = true;
+$estatus_false = false;
+$consulta = select("convite","*","WHERE id_usuario = $_SESSION[FBID] and estatus = '$estatus_true'",null,null);
+$consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] and estatus = '$estatus_false'",null,null);
 ?>
 <html lang="en">
     <head>
@@ -104,8 +106,62 @@ $consulta = select("convite","*","WHERE id_usuario = $_SESSION[FBID]",null,null)
                     <td><?php echo $nomeEvento[$i];?></td>
                     <td><?php echo $consulta_evento[$i]['data']; ?></td>
                     <td><?php echo $local[$i]; ?></td> 
-                    <td><?php echo "preencher"; ?></td> 
-                    <td><a href="verificar_antes.php?id=<?php echo $consulta_evento[0]['id_evento']; ?>">Aceitar</a></td>
+                    <td><?php echo "" ?></td> 
+                    <td><a href="verificar_antes.php?id=<?php echo $consulta_evento[0]['id_evento']; ?>&id_convite=<?php echo $consulta[$i]['id_convite']; ?>">Aceitar</a></td>
+                </tr>
+                 <?php 
+                            $consulta_local = null;
+                                    }
+                        }else{
+                            echo "Nunhum dado encontrado!";
+                    }
+                 ?>
+            
+                 <!--Tabela para os convites pendentes-->
+            </tbody>
+                    </table>
+                </div>
+                <div class="col-md-9 col-md-push-0">
+                    
+                    
+                    <h3>Lista de convites pentendes:</h3>
+                    <table class="table table-bordered">
+                        <tbody><tr>
+                        
+                    <th>Nº</th>
+                    <th>Nome do Evento</th>
+                    <th>Data</th>
+                    <th>Local</th>
+                    <th>Nº de participantes</th>
+                    <th>Aceitar</th>
+                </tr>
+
+                 <?php 
+                    if($consulta_pendente  == true){
+                           
+                        for ($i=0; $i < count($consulta_pendente ); $i++) { 
+                            $convite = $consulta_pendente [$i]['id_evento'];
+                            //Fazer uma subconsulta para retornar o nome do local que o evento participa
+                            
+                            $consulta_evento =  select("evento","*","WHERE id_evento = '$convite'", null, null);
+                            
+                            $id_l = $consulta_evento[0]['id_relacao'];
+                            $consulta_local = select("local_evento","*","WHERE id_local = '$id_l'", null, null);
+
+                            //A cada nova consulta no banco de dados eh retornado um Array novo. Por isso
+                            //a coluna 1 deve ter o valor sempre 0, para que ele não pegue valores que não existem
+                            
+                            $local[$i] = (string) $consulta_local[0]['nome'];
+                            $nomeEvento[$i] = (string) $consulta_evento[0]['nome'];
+                 ?>
+                <tr>
+
+                    <td><?php echo $i?></td>
+                    <td><?php echo $nomeEvento[$i];?></td>
+                    <td><?php echo $consulta_evento[$i]['data']; ?></td>
+                    <td><?php echo $local[$i]; ?></td> 
+                    <td><?php echo "" ?></td> 
+                    <td><a href="verificar_antes.php?id=<?php echo $consulta_evento[0]['id_evento']; ?>&id_convite=<?php echo $$consulta_pendente[$i]['id_convite']; ?>">Aceitar</a></td>
                 </tr>
                  <?php 
                             $consulta_local = null;

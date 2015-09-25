@@ -57,14 +57,20 @@ if ( isset( $session ) ) {
   $loginUrl = $helper->getLoginUrl();
  header("Location: ".$loginUrl);
 
-function getAmigo($id){
 
-   $request = new FacebookRequest( $session, 'GET', '/me/friends/'.$id );
-   $response = $request->execute();
+
+// get taggable friends
+//$taggable = (new FacebookRequest( $session, 'GET', '/me/taggable_friends' ))->execute()->getGraphObject()->asArray();
+// output response
+//echo '<pre>' . print_r( $taggable, 1 ) . '</pre>';
+// output total friends
+//echo count( $taggable['data'] );
+//echo '<pre>' . print_r( $story, 1 ) . '</pre>';
+  //  $request = new FacebookRequest( $session, 'GET', '/me/friends/'.$id );
+  //  $response = $request->execute();
   
-  $graphObject = $response->getGraphObject();
-  return  $fb_id_amigo = $graphObject -> getProperty('id');
+  // $graphObject = $response->getGraphObject();
+  // return  $fb_id_amigo = $graphObject -> getProperty('id');
 
-}
 
 }
