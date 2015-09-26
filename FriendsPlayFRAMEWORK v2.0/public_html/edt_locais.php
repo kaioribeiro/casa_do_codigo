@@ -121,6 +121,14 @@ $consulta= select("local_evento","*",null, null, null);
                  ?>
             </tbody>
                     </table>
+                        <script language="JavaScript">
+                                function Abre(url, width, height)
+                                {
+                                    window.open(url,"_blank","resizable=no,toolbar=no,status=no,menubar=no,scrollbars=auto,width=" + width + ",height=" + height)
+                                }
+                                
+                        </script>
+                            <a href="javascript:Abre('cadastrarLocal.php',700,500)">Cadastre um local</a>
                 </div>
 
             </div>

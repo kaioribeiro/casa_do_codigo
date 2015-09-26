@@ -70,7 +70,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                         <button id="botaoBuscar" name="botaoBuscar" class="btn btn-primary">Criar convite</button>
                     </div>
                     
-                    <h3>Lista de convites:</h3>
+                    <h3>Lista de convites aceitos:</h3>
                     <table class="table table-bordered">
                         <tbody><tr>
                         
