@@ -162,7 +162,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                     <td><?php echo $consulta_evento[0]['data']; ?></td>
                     <td><?php echo $local[$i]; ?></td> 
                     <td><?php echo "" ?></td> 
-                    <td><a href="verificar_antes.php?id=<?php echo $consulta_evento[0]['id_evento']; ?>&id_convite=<?php echo $consulta_pendente[$i]['id_convite']; ?>">Aceitar</a></td>
+                    <td><a href="verificar_antes.php?id=<?php echo $consulta_evento[0]['id_evento']; ?>&id_convite=<?php echo $consulta_pendente[$i]['id_convite']; ?>&contador=<?php echo $consulta_pendente[$i]['contador']; ?>">Aceitar</a></td>
                     <td><a href="_excluir/excluir_convite.php?id_convite=<?php echo $consulta_pendente[$i]['id_convite']; ?>">Recusar</a></td>
                 </tr>
                  <?php 

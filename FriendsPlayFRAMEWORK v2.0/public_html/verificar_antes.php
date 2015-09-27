@@ -156,7 +156,7 @@ $consulta= select("evento","*", "WHERE id_evento = '$id'", null, null);
                                      <p class="navbar-text"><?php echo $consulta[$i]['descricao']; ?></p>
                                 </div>
                             </div></p>
-                                <p><a class="btn btn-primary btn-lg" href="_update/update_convite.php?id_convite= <?php echo $id_convite?> " role="button">Learn more</a></p>
+                                <p><a class="btn btn-primary btn-lg" href="_update/update_convite.php?id_convite= <?php echo $id_convite?>&id_evento=<?php echo $id?> " role="button">Learn more</a></p>
                             </div>
                            
                             <!-- Button Drop Down -->
