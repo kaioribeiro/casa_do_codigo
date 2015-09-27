@@ -67,7 +67,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                     <div class="form-group">
                         <label class="col-md-0 control-label" for="buscaLabel"></label>  
                             
-                        <button id="botaoBuscar" name="botaoBuscar" class="btn btn-primary">Criar convite</button>
+                        <a class="btn btn-primary btn-lg" href="eventoConvite.php" role="button">Criar convite</a>
                     </div>
                     
                     <h3>Lista de convites aceitos:</h3>
@@ -104,7 +104,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
 
                     <td><?php echo $i?></td>
                     <td><?php echo $nomeEvento[$i];?></td>
-                    <td><?php echo $consulta_evento[$i]['data']; ?></td>
+                    <td><?php echo $consulta_evento[0]['data']; ?></td>
                     <td><?php echo $local[$i]; ?></td> 
                     <td><?php echo "" ?></td> 
                     <td><a href="_excluir/excluir_convite.php?id_convite=<?php echo $consulta[$i]['id_convite']; ?>">Canselar</a></td>
@@ -159,7 +159,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
 
                     <td><?php echo $i?></td>
                     <td><?php echo $nomeEvento[$i];?></td>
-                    <td><?php echo $consulta_evento[$i]['data']; ?></td>
+                    <td><?php echo $consulta_evento[0]['data']; ?></td>
                     <td><?php echo $local[$i]; ?></td> 
                     <td><?php echo "" ?></td> 
                     <td><a href="verificar_antes.php?id=<?php echo $consulta_evento[0]['id_evento']; ?>&id_convite=<?php echo $consulta_pendente[$i]['id_convite']; ?>">Aceitar</a></td>

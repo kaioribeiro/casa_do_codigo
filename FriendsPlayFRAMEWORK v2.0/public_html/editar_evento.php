@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+ 00<!DOCTYPE html>
 <?php
 session_start();
 

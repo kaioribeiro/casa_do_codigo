@@ -5,6 +5,7 @@ session_start();
 
 require_once("_Funcoes/FuncaoSelect.php");
 //require_once ("fbconfig.php");
+$id_ev = $_REQUEST['id'];
 $consulta = select("usuario","*", null, null, null);
 ?>
 <html lang="en">
@@ -70,18 +71,15 @@ $consulta = select("usuario","*", null, null, null);
                         //     if($consulta[$i]['id_usuario'] == $aux){
                     ?>
                     <!-- Multiple Checkboxes -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="convidarAmigos">Amigos:</label>
-                        <div class="col-md-4">
-                            <div class="checkbox">
-                                <label for="convidarAmigos-0">
-                                    <input type="checkbox" name="convidarAmigos" id="convidarAmigos-0" value="1">
-                                    <?php echo $consulta[$i]['nome']; ?>
-                                </label>
-                            </div>
-                        </div>
+                    <div class="list-group">
+                        <a href="_inserts/InserirConvite.php?id= <?php echo $consulta[$i]['id_usuario']?>&id_evento=<?php echo $id_ev?>" class="list-group-item">
+                             <?php echo $consulta[$i]['nome']; ?>
+                        </a>
+                       
                     </div>
+                  
                     <?php               
+                          
                             // }else{ echo "nenhum usuario encontrado"; }
                                     }
                         }else{
