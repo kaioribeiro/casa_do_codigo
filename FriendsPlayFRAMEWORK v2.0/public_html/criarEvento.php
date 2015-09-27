@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
+//$_SESSION['id_local'] = $_REQUEST['id_local'];
 
 
 ?>
@@ -85,7 +86,9 @@ session_start();
 
                                 </div>
                             </div>
-
+                            
+                            
+                            
                             
 
 

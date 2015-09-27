@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php 
 
 include ("../_Funcoes/FuncaoInserir.php");
@@ -15,11 +16,11 @@ $consulta = select("local_evento","*","where nome = '$nome' and numero = '$numer
 	if ($consulta != true) {
 		inserir(array("nome","numero","cidade","estado","local"), array($nome,$numeroDoLocal,$cidade,$estado,$logradouro),
 		'local_evento');
+                
+                
 	} else {
+            
 		echo "entrou no else";
 	}
-	
-
-
 
  ?>

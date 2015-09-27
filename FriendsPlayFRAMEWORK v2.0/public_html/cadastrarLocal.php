@@ -9,6 +9,7 @@ session_start();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/cadastrarLocal.css"/>
 
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Friend's Play</title>
@@ -27,40 +28,14 @@ session_start();
     <body><div class="container">
 
             <!--Row uma linha principal que será dividida por duas colunas-->
-            <div class="row" id="linha-conteudo">
-
-                <!--Primeira Linha--> 
-                <div class="col-md-3 col-md-pull-1" id="col-lateral-direita">
-                    
-                    <div class="dropdown" id="botao-sair">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <span class="caret"></span>
-                        </button>     
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="logout.php">Sair</a></li>
-
-                        </ul>
-                    </div>
-                    <img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
-
-
-                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
-                    <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
-                        <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
-                        <li role="presentation" class="active"><a href="convites.php">Convites</a></li>
-                        <li role="presentation"><a href="eventosCriados.php">Eventos criados</a></li>
-                        <li role="presentation"><a href="partipacaoEventos.php">Participação em eventos</a></li>
-                    </ul>
-
-                </div>
+            
 
                 <form action="_inserts/InserirLocal.php" method="post" class="form-horizontal">
                     <fieldset>
                 
                 <!--Segunda Linha--> 
                 <div class="col-md-9 col-md-push-0">
-                    <h5>Menu > Criar evento > Cadastrar Local</h5>
-                    <h3>Cadastrar Endereço:</h3>
+                    
 
                     
 
@@ -135,18 +110,25 @@ session_start();
                                     </select>
                                 </div>
                             </div>
-                    <button type="submit" class="btn btn-primary" style="margin-left: 420px; margin-top: 3%;">Cadastrar Local</button>
+
+                            <script language="JavaScript">
+                                function Fecha(url)
+                                {
+                                    
+                                    window.close(url,'cadastrarLocal.php')
+                                }
+                                
+                        </script>
+                            <a href="javascript:Fecha('cadastrarLocal.php')">Cadastre um local</a>
+                            
+                            <button  type="submit" class="btn btn-primary" style="margin-left: 420px; margin-top: 3%;" >Cadastrar Local</button>
                     
                     
                 </div></fieldset>
 
             </div>
-            <div class="row" id="rodape">
-                Copyright 2015 - by MangSoftware
-                <br>
-                <a href="https://www.facebook.com/kaio.ribeiro.984" target="_blank">Facebook</a>
-            </div>
-        </div>
+            
+    
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
