@@ -107,7 +107,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                     <td><?php echo $consulta_evento[0]['data']; ?></td>
                     <td><?php echo $local[$i]; ?></td> 
                     <td><?php echo $consulta_evento[0]['num_atual']; ?></td> 
-                    <td><a href="_excluir/excluir_convite.php?id_convite=<?php echo $consulta[$i]['id_convite']; ?>">Canselar</a></td>
+                    <td><a href="_excluir/excluir_convite.php?id_convite=<?php echo $consulta[$i]['id_convite']; ?>">Cancelar</a></td>
                 </tr>
                  <?php 
                             $consulta_local = null;
