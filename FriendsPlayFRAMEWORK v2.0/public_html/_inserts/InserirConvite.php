@@ -1,7 +1,7 @@
 <?php 
 
 include ("../_Funcoes/FuncaoInserir.php");
-include ("../_Funcoes/FuncaoSelect.php");
+//include ("../_Funcoes/FuncaoSelect.php");
 
 $id = $_REQUEST['id'];
 $id_evento = $_REQUEST['id_evento'];

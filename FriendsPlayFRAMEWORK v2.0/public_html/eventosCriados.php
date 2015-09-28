@@ -113,7 +113,7 @@ $consulta= select("evento","*","WHERE id_usuario = '$id_usu' AND id_usuario_goog
                     <td><?php echo $consulta[$i]['nome'];?></td>
                     <td><?php echo $consulta[$i]['data']; ?></td>
                     <td><?php echo $convercao[$i]; ?></td> 
-                    <td><?php echo "preencher"; ?></td> 
+                    <td><?php echo $consulta[$i]['num_atual']; ?></td> 
                     <td><a href="edt_locais.php?id=<?php echo $consulta[$i]['id_evento']; ?>">Alterar</a></td>
                     
                 </tr>
