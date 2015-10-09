@@ -84,12 +84,21 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
 
                  <?php 
                     if($consulta == true){
+                        //Verificar se a data do evento já passou
+
                            
                         for ($i=0; $i < count($consulta); $i++) { 
                             $convite = $consulta[$i]['id_evento'];
-                            //Fazer uma subconsulta para retornar o nome do local que o evento participa
                             
                             $consulta_evento =  select("evento","*","WHERE id_evento = '$convite'", null, null);
+
+                            //Verificar a data do evento
+                            $data_atual = date('Y/m/d');
+                            if($data_atual < $consulta_evento[0]['data']){
+
+                            //Fazer uma subconsulta para retornar o nome do local que o evento participa
+                            
+                            
                             
                             $id_l = $consulta_evento[0]['id_relacao'];
                             $consulta_local = select("local_evento","*","WHERE id_local = '$id_l'", null, null);
@@ -111,7 +120,11 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                 </tr>
                  <?php 
                             $consulta_local = null;
+                                        }else{
+                                            $contar_data[$i] = $consulta[$i]['id_convite'];
+                                        }
                                     }
+                                
                         }else{
                             echo "Nunhum dado encontrado!";
                     }

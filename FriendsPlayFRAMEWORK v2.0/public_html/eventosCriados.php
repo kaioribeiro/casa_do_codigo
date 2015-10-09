@@ -123,7 +123,7 @@ $consulta= select("evento","*","WHERE id_usuario = '$id_usu' AND id_usuario_goog
                     
                 </tr>
                
-</div>
+            </div>
                  <?php 
                             $consulta_local = null;
                                     }
