@@ -21,7 +21,7 @@ $hora_final = $_REQUEST['horaf'];
 $numeroMaximo = $_REQUEST['nNumMax'];
 $numeroMinimo = $_REQUEST['nNumMin'];
 $privacidade = $_REQUEST['privacidade'];
-
+$data_atual = date("Y-m-d");
 //Descrição
 $descricao = $_REQUEST['descricao'];
 
@@ -31,15 +31,16 @@ $descricao = $_REQUEST['descricao'];
 
 //Se o evento não existir
  if ($verificar_nome_data != true) {
+    if($data > $data_atual){
 	
  	$verificar_data = select("evento","nome, horario_inicial, horario_final", "where data = '$data'",null, null);
         //Verificando se a hora final for depois da inicial
-        $verificar_hora = select("evento","*", "where $hora_final > $hora",null, null);
+            //$verificar_hora = select("evento","*", "where $hora_final > $hora",null, null);
         
  	if ($verificar_data != null) {
             
             //Se a hora final for depois da inicial
-            if($verificar_hora == true){
+            if($hora >= $hora_final){
                 
 		for ($i=0; $i < count($verificar_data); $i++) { 
                     echo $verificar_data[$i]["nome"]."<br>";
@@ -61,8 +62,10 @@ $descricao = $_REQUEST['descricao'];
 	  	"evento");
  		 header("Location: ../eventosCriados.php");	
         }
-        
-	
+        }else{ 
+            echo "data incorreta";
+	       echo "<a href='JavaScript: window.history.back();'>Voltar</a>";
+           }
  }else{
  	echo "Evento já existe!";
  }
