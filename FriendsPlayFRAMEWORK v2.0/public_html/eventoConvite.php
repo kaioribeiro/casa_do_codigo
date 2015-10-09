@@ -106,14 +106,18 @@ $consulta= select("evento","*","WHERE id_usuario = '$id_usu' AND id_usuario_goog
                         //a coluna 1 deve ter o valor sempre 0, para que ele não pegue valores que não existem
                             
                             $convercao[$i] = (string) $consulta_local[0]['nome'];
+                        //Converter o horario para o padrão brasileiro
+                        $data_mysql = $consulta[$i]['data'];
+                        $formatar = strtotime($data_mysql);
                  ?>
+
 
                 <tr>
                     <td><?php echo $i?></td>
                     <td><?php echo $consulta[$i]['nome'];?></td>
-                    <td><?php echo $consulta[$i]['data']; ?></td>
+                    <td><?php echo date("d/m/Y", $formatar) ; ?></td>
                     <td><?php echo $convercao[$i]; ?></td> 
-                    <td><?php echo "preencher"; ?></td> 
+                    <td><?php echo $consulta[$i]['num_atual']; ?></td> 
                     <td><a href="partipacaoEventos.php?id=<?php echo $consulta[$i]['id_evento']; ?>">Seleceionar</a></td>
                     
                 </tr>
