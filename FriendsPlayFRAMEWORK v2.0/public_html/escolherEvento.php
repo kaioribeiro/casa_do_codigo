@@ -33,32 +33,6 @@ $consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_goo
     </head>
 
     <body>
-        <nav class="navbar bg-primary">
-            <div id="barra-superior" class="container-fluid">
-
-                <!-- Titulo -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <h4 id="titulo-pagina" class="bg-primary">Friend's Play</h4>
-                        </li>
-                    </ul>
-
-
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li class="dropdown" id="botao-sair">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                
-                                <li role="separator" class="divider"></li>
-                                <li><a href="logout.php">Sair</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
         <div class="container">
 
             <!--Row uma linha principal que será dividida por duas colunas-->
