@@ -34,8 +34,9 @@ $consulta= select("evento","*","WHERE id_usuario = '$id_usu' AND id_usuario_goog
     </head>
 
     <body>
+        <p class="bg-primary"><button class="btn btn-primary" style="margin-left: 1200px;" > Sair</button></p>
         <div class="container">
-
+            
             <!--Row uma linha principal que será dividida por duas colunas-->
             <div class="row" id="linha-conteudo">
 
