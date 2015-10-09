@@ -18,6 +18,8 @@ $consulta= select("local_evento","*",null, null, null);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/edt_locais.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'> 
             
         
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -35,6 +37,32 @@ $consulta= select("local_evento","*",null, null, null);
     </head>
 
     <body>
+        <nav class="navbar bg-primary">
+            <div id="barra-superior" class="container-fluid">
+
+                <!-- Titulo -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <h4 id="titulo-pagina" class="bg-primary">Friend's Play</h4>
+                        </li>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown" id="botao-sair">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li role="separator" class="divider"></li>
+                                <li><a href="logout.php">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
         <div class="container">
 
             <!--Row uma linha principal que será dividida por duas colunas-->
@@ -43,24 +71,12 @@ $consulta= select("local_evento","*",null, null, null);
                 <!--Primeira Linha--> 
                 <div class="col-md-3 col-md-pull-1" id="col-lateral-direita">
 
-                    <div class="dropdown" id="botao-sair">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <span class="caret"></span>
-                            </button>     
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="logout.php">Sair</a></li>
-
-                        </ul>
-                    </div>
-                    <img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
-                        
-
-
-                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
-
+                    
                     <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
+                        <li><img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150" ></li>
+                        <li><mark id="nome-de-usuario" ><h2><?php echo$_SESSION['FULLNAME']; ?></h2></mark></li>
                         <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
-                        <li role="presentation"><a href="convites.php">Convites</a></li>
+                        <li role="presentation""><a href="convites.php">Convites</a></li>
                         <li role="presentation" class="active" ><a href="eventosCriados.php">Eventos criados</a></li>
                         <li role="presentation"><a href="partipacaoEventos.php">Participação em eventos</a></li>
                     </ul>
@@ -68,7 +84,7 @@ $consulta= select("local_evento","*",null, null, null);
                 </div>
 
                 <!--Segunda Linha--> 
-                <div class="col-md-9 col-md-push-0">
+                <div class="col-md-9 col-md-push-0" id="edt-locais">
                     <h5>Menu > Eventos Criados</h5>
 
                     
@@ -87,7 +103,8 @@ $consulta= select("local_evento","*",null, null, null);
                             
                         </div> 
                         <button type="submit" id="botaoBuscar" name="botaoBuscar" class="btn btn-primary">Buscar</button>
-                        
+                        <input class="btn btn-primary" type="button" value="Atualizar" onClick="history.go(0)">
+                    </form>
                     </div>
                     </form>
                     <table class="table table-bordered">
@@ -106,7 +123,7 @@ $consulta= select("local_evento","*",null, null, null);
                  ?>
                 <tr>
 
-                    <td><a href="editar_evento.php?id_local=<?php echo $consulta[$i]['id_local']; ?>"><?php echo $consulta[$i]['nome']; ?></a></td>                   
+                    <td><a id="local" href="editar_evento.php?id_local=<?php echo $consulta[$i]['id_local']; ?>"><?php echo $consulta[$i]['nome']; ?></a></td>                   
                     <td><?php echo $consulta[$i]['local'];?></td>
                     <td><?php echo $consulta[$i]['cidade']; ?></td>
                     <td><?php echo $consulta[$i]['estado']; ?></td> 
@@ -128,7 +145,7 @@ $consulta= select("local_evento","*",null, null, null);
                                 }
                                 
                         </script>
-                            <a href="javascript:Abre('cadastrarLocal.php',700,500)">Cadastre um local</a>
+                        <a class="btn btn-primary" href="javascript:Abre('cadastrarLocal.php',700,500)">Cadastre um local</a>
                 </div>
 
             </div>
