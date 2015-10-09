@@ -96,10 +96,10 @@ $consulta= select("evento","*", "WHERE id_evento = '$id'", null, null);
                             <h5>Menu > Editar Evento</h5>
                             
                             <div class="jumbotron">
-                                <h1><?php echo $consulta[$i]['nome']; ?></h1>
+                                <h3><?php echo $consulta[$i]['nome']; ?></h3>
                                 <p>
                                 <div class="form-group">
-                                <p class="navbar-text" for="modalidade">Modalidade:</p>  
+                                    <p class="navbar-text" for="modalidade">Modalidade:</p>
                                 <div class="col-md-4">
                                     <p class="navbar-text"><?php echo $consulta[$i]['modalidade']; ?></p>
                                 </div>
