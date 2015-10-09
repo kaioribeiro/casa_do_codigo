@@ -112,8 +112,9 @@ $consulta = select("evento", "*", "WHERE id_usuario = '$id_usu' AND id_usuario_g
                             </tr>
 
                             <?php
-                            if ($consulta == true) {
-
+                            if ($consulta == true) {?>
+                <div>
+                    <tr>
                     <td><?php echo $i?></td>
                     <td><?php echo $consulta[$i]['nome'];?></td>
                     <td><?php echo date('d/m/Y', $formatar); ?></td>
