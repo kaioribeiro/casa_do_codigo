@@ -46,11 +46,9 @@ $consulta = select("usuario","*", null, null, null);
 
                         </ul>
                     </div>
-                    <img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
-
-
-                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME']; ?></h2></mark>
                     <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
+                        <li><img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150" ></li>
+                        <li><mark id="nome-de-usuario" ><h2><?php echo$_SESSION['FULLNAME']; ?></h2></mark></li>
                         <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>
                         <li role="presentation"><a href="eventosCriados.php">Eventos criados</a></li>
