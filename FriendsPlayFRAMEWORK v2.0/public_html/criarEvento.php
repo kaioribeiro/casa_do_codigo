@@ -12,6 +12,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
         <link rel="stylesheet" type="text/css" href="_css/criarEvento.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'> 
 
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Friend's Play</title>
@@ -27,7 +28,34 @@ session_start();
         <![endif]-->
     </head>
 
-    <body><div class="container">
+    <body>
+        <nav class="navbar bg-primary">
+            <div id="barra-superior" class="container-fluid">
+
+                <!-- Titulo -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <h4 id="titulo-pagina" class="bg-primary">Friend's Play</h4>
+                        </li>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown" id="botao-sair">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li role="separator" class="divider"></li>
+                                <li><a href="logout.php">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="container">
 
             <!--Row uma linha principal que será dividida por duas colunas-->
             <div class="row" id="linha-conteudo">
@@ -35,21 +63,14 @@ session_start();
                 <!--Primeira Linha--> 
                 <div class="col-md-3 col-md-pull-1" id="col-lateral-direita">
 
-                    <div class="dropdown" id="botao-sair">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <span class="caret"></span>
-                        </button>     
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="logout.php">Sair</a></li>
-
-                        </ul>
-                    </div>
                     
                     
-                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
                     
-                        <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
+                    
+                    
+                    <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
                         <li><img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150" ></li>
+                        <li><mark id="nome-de-usuario" ><h2><?php echo$_SESSION['FULLNAME']; ?></h2></mark></li>
                         <li role="presentation" class="active"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>
                         <li role="presentation"><a href="eventosCriados.php">Eventos criados</a></li>
@@ -173,7 +194,7 @@ session_start();
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="descricao">Descrição:</label>
                                 <div class="col-md-4">                     
-                                    <textarea class="form-control" id="descricao" name="descricao">Descreva regras, características e/ou avisos para convidados...</textarea>
+                                    <textarea class="form-control" id="descricao" name="descricao" placeholder="Descreva as caracteristicas do evento"></textarea>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="margin-left: 650px; margin-top: 1%;">Cadastrar Evento</button>

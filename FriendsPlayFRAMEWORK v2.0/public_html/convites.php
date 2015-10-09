@@ -15,6 +15,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'> 
 
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Friend's Play</title>
@@ -30,7 +31,35 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
         <![endif]-->
     </head>
 
-    <body><div class="container">
+    <body>
+        <body>
+        <nav class="navbar bg-primary">
+            <div id="barra-superior" class="container-fluid">
+
+                <!-- Titulo -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <h4 id="titulo-pagina" class="bg-primary">Friend's Play</h4>
+                        </li>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown" id="botao-sair">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li role="separator" class="divider"></li>
+                                <li><a href="logout.php">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="container">
 
             <!--Row uma linha principal que será dividida por duas colunas-->
             <div class="row" id="linha-conteudo">
@@ -38,20 +67,10 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                 <!--Primeira Linha--> 
                 <div class="col-md-3 col-md-pull-1" id="col-lateral-direita">
                     
-                    <div class="dropdown" id="botao-sair">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <span class="caret"></span>
-                        </button>     
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="logout.php">Sair</a></li>
-
-                        </ul>
-                    </div>
-                    <img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
-
-
-                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
+                    
                     <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
+                        <li><img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150" ></li>
+                        <li><mark id="nome-de-usuario" ><h2><?php echo$_SESSION['FULLNAME']; ?></h2></mark></li>
                         <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation" class="active"><a href="convites.php">Convites</a></li>
                         <li role="presentation"><a href="eventosCriados.php">Eventos criados</a></li>
@@ -133,22 +152,23 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                  <!--Tabela para os convites pendentes-->
             </tbody>
                     </table>
-                </div>
-                <div class="col-md-9 col-md-push-0">
+                
+                
                     
                     
                     <h3>Lista de convites pentendes:</h3>
                     <table class="table table-bordered">
-                        <tbody><tr>
-                        
-                    <th>Nº</th>
-                    <th>Nome do Evento</th>
-                    <th>Data</th>
-                    <th>Local</th>
-                    <th>Nº de participantes</th>
-                    <th>Aceitar</th>
-                    <th>Recusar</th>
-                </tr>
+                        <tbody>
+                            <tr>
+
+                                <th>Nº</th>
+                                <th>Nome do Evento</th>
+                                <th>Data</th>
+                                <th>Local</th>
+                                <th>Nº de participantes</th>
+                                <th>Aceitar</th>
+                                <th>Recusar</th>
+                            </tr>
 
                  <?php 
                     if($consulta_pendente  == true){
@@ -195,7 +215,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                 <br>
                 <a href="https://www.facebook.com/kaio.ribeiro.984" target="_blank">Facebook</a>
             </div>
-        </div>
+        
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

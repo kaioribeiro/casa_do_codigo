@@ -1,13 +1,12 @@
 <?php session_start(); ?>
 
-<?php 
+<?php
 include ("_Funcoes/FuncaoSelect.php");
 
 $id_usu = $_SESSION['FBID'];
 $id_goo = $_SESSION['id_google'];
 //$consulta= select("evento","*", "WHERE id_usuario = '$id_usu' AND id_usuario_google = '$id_goo'", null, null);
-$consulta= select("evento","*","WHERE id_usuario = '$id_usu' AND id_usuario_google = '$id_goo'" ,null,null);
-
+$consulta = select("evento", "*", "WHERE id_usuario = '$id_usu' AND id_usuario_google = '$id_goo'", null, null);
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +16,9 @@ $consulta= select("evento","*","WHERE id_usuario = '$id_usu' AND id_usuario_goog
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
-            
-        
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'> 
+
+
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Friend's Play</title>
 
@@ -34,85 +34,85 @@ $consulta= select("evento","*","WHERE id_usuario = '$id_usu' AND id_usuario_goog
     </head>
 
     <body>
-        <p class="bg-primary"><button class="btn btn-primary" style="margin-left: 1200px;" > Sair</button></p>
+        <nav class="navbar bg-primary">
+            <div id="barra-superior" class="container-fluid">
+
+                <!-- Titulo -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <h4 id="titulo-pagina" class="bg-primary">Friend's Play</h4>
+                        </li>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown" id="botao-sair">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li role="separator" class="divider"></li>
+                                <li><a href="logout.php">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+
+
         <div class="container">
-            
+
             <!--Row uma linha principal que será dividida por duas colunas-->
             <div class="row" id="linha-conteudo">
 
                 <!--Primeira Linha--> 
                 <div class="col-md-3 col-md-pull-1" id="col-lateral-direita">
 
-                    <div class="dropdown" id="botao-sair">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu-sair" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <span class="caret"></span>
-                            </button>     
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="logout.php">Sair</a></li>
-
-                        </ul>
-                    </div>
-                    <img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150">
-                        
-
-
-                    <mark id="nome-de-usuario"><h2><?php echo$_SESSION['FULLNAME'];?></h2></mark>
 
                     <ul id="menu-principal" class="nav nav-pills nav-stacked"  style="position: fixed;">
+                        <li><img id="img-perfil" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture"  class="img-circle" id="foto-perfil" width="150" ></li>
+                        <li><mark id="nome-de-usuario" ><h2><?php echo$_SESSION['FULLNAME']; ?></h2></mark></li>
                         <li role="presentation"><a href="criarEvento.php">Criar Evento</a></li>
                         <li role="presentation"><a href="convites.php">Convites</a></li>
-                        <li role="presentation" class="active" ><a href="eventosCriados.php">Eventos criados</a></li>
+                        <li role="presentation" class="active"><a href="eventosCriados.php">Eventos criados</a></li>
                         <li role="presentation"><a href="partipacaoEventos.php">Participação em eventos</a></li>
                     </ul>
-        
+
                 </div>
 
                 <!--Segunda Linha--> 
                 <div class="col-md-9 col-md-push-0">
                     <h5>Menu > Eventos Criados</h5>
-                    
+
                     <div class="form-group">
                         <label class="col-md-0 control-label" for="buscaLabel"></label>  
-                            
+
                         <div class="col-md-4">
-                            
+
                             <input id="buscaLabel" name="buscaLabel" type="text" placeholder="🔍 Buscar" class="form-control input-md">
                             <label class="col-md-4 control-label" for="botaoBuscar"></label>
-                            
+
                         </div> 
                         <button id="botaoBuscar" name="botaoBuscar" class="btn btn-primary">Buscar</button>
                     </div>
-                    
+
                     <h3>Lista de eventos que criei:</h3>
                     <table class="table table-bordered">
                         <tbody><tr>
-                        
-                    <th>Nº</th>
-                    <th>Nome do Evento</th>
-                    <th>Data</th>
-                    <th>Local</th>
-                    <th>Nº de participantes</th>
-                    <th>Editar</th>
-                </tr>
 
-                 <?php 
-                    if($consulta == true){
-                           
-                        for ($i=0; $i < count($consulta); $i++) { 
-                            //bryalmeidaecomp@yahoo.com.br
-                            //Fazer uma subconsulta para retornar o nome do local que o evento participa
-                            $id_l = $consulta[$i]['id_relacao'];
-                            $consulta_local =  select("local_evento","*","WHERE id_local = '$id_l'", null, null);
-                            //A cada nova consulta no banco de dados eh retornado um Array novo. Por isso
-                        //a coluna 1 deve ter o valor sempre 0, para que ele não pegue valores que não existem
-                            
-                            $convercao[$i] = (string) $consulta_local[0]['nome'];
-                 ?>
+                                <th>Nº</th>
+                                <th>Nome do Evento</th>
+                                <th>Data</th>
+                                <th>Local</th>
+                                <th>Nº de participantes</th>
+                                <th>Editar</th>
+                            </tr>
 
-                <tr>
-                        <!--Converter o horario para o padrão brasileiro-->
-                        <?php $data_mysql = $consulta[$i]['data'];
-                        $formatar = strtotime($data_mysql)?>
+                            <?php
+                            if ($consulta == true) {
 
                     <td><?php echo $i?></td>
                     <td><?php echo $consulta[$i]['nome'];?></td>
