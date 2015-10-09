@@ -15,7 +15,9 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/convites.css"/>
         <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'> 
+        <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Friend's Play</title>
@@ -32,7 +34,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
     </head>
 
     <body>
-        <body>
+        
         <nav class="navbar bg-primary">
             <div id="barra-superior" class="container-fluid">
 
@@ -98,7 +100,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                     <th>Data</th>
                     <th>Local</th>
                     <th>Nº de participantes</th>
-                    <th>Aceitar</th>
+                    <th>Pendêcia</th>
                 </tr>
 
                  <?php 
@@ -126,13 +128,13 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                     <td><?php echo $consulta_evento[0]['data']; ?></td>
                     <td><?php echo $local[$i]; ?></td> 
                     <td><?php echo $consulta_evento[0]['num_atual']; ?></td> 
-                    <td><a href="_excluir/excluir_convite.php?id_convite=<?php echo $consulta[$i]['id_convite']; ?>">Cancelar</a></td>
+                    <td><a class="btn btn-danger" href="_excluir/excluir_convite.php?id_convite=<?php echo $consulta[$i]['id_convite']; ?>">Cancelar</a></td>
                 </tr>
                  <?php 
                             $consulta_local = null;
                                     }
                         }else{
-                            echo "Nunhum dado encontrado!";
+                            echo "<h4 >Você ainda não tem nenhum convite.</h4>";
                     }
                  ?>
             
@@ -182,14 +184,14 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                     <td><?php echo $consulta_evento[0]['data']; ?></td>
                     <td><?php echo $local[$i]; ?></td> 
                     <td><?php echo $consulta_evento[0]['num_atual']; ?></td> 
-                    <td><a href="verificar_antes.php?id=<?php echo $consulta_evento[0]['id_evento']; ?>&id_convite=<?php echo $consulta_pendente[0]['id_convite']; ?>">Aceitar</a></td>
-                    <td><a href="_excluir/excluir_convite.php?id_convite=<?php echo $consulta_pendente[$i]['id_convite']; ?>">Recusar</a></td>
+                    <td><a class="btn btn-success" style="font-weight: bold;" href="verificar_antes.php?id=<?php echo $consulta_evento[0]['id_evento']; ?>&id_convite=<?php echo $consulta_pendente[0]['id_convite']; ?>">V</a></td>
+                    <td><a class="btn btn-danger" style="font-weight: bold;" href="_excluir/excluir_convite.php?id_convite=<?php echo $consulta_pendente[$i]['id_convite']; ?>">X</a></td>
                 </tr>
                  <?php 
                             $consulta_local = null;
                                     }
                         }else{
-                            echo "Nunhum dado encontrado!";
+                            echo "<h4>Você ainda não tem nenhum convite.</h4>";
                     }
                  ?>
             </tbody>
@@ -197,6 +199,7 @@ $consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] an
                 </div>
 
             </div>
+        </div>
             <div class="row" id="rodape">
                 Copyright 2015 - by MangSoftware
                 <br>

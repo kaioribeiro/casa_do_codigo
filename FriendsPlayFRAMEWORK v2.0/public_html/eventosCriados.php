@@ -136,7 +136,7 @@ $consulta = select("evento", "*", "WHERE id_usuario = '$id_usu' AND id_usuario_g
                                         <td><?php echo date('d/m/Y', $formatar); ?></td>
                                         <td><?php echo $convercao[$i]; ?></td> 
                                         <td><?php echo $consulta[$i]['num_atual']; ?></td> 
-                                        <td><a href="edt_locais.php?id=<?php echo $consulta[$i]['id_evento']; ?>">Alterar</a></td>
+                                        <td><a class="btn btn-success" href="edt_locais.php?id=<?php echo $consulta[$i]['id_evento']; ?>">Alterar</a></td>
 
                                     </tr>
 
