@@ -112,7 +112,7 @@ $consulta = select("evento", "*", "WHERE id_usuario = '$id_usu' AND id_usuario_g
                             </tr>
 
                             <?php
-                            if ($consulta == true) {?>
+                            if ($consulta == true) {?>//
                 <div>
                     <tr>
                     <td><?php echo $i?></td>
@@ -126,8 +126,7 @@ $consulta = select("evento", "*", "WHERE id_usuario = '$id_usu' AND id_usuario_g
                
             </div>
                  <?php 
-                            $consulta_local = null;
-                                    }
+                            $consulta_local = null;    
                         }else{
                             echo "Nunhum dado encontrado!";
                     }
