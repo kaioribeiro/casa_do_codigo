@@ -1,5 +1,8 @@
 <?php
-
+    //   
+    //Conexão com a nuvem
+  //function connect($banco="friendplay", $usuario="admin8zhWqX8", $senha="HwT3VKzVN7SZ", $localhost="mysql://$OPENSHIFT_MYSQL_DB_HOST"){
+    //Conexao local
 function connect($banco="friendsPlay", $usuario="root", $senha="", $localhost="localhost"){
     //Tentar estabelecer a conexão
     $connect = mysql_connect($localhost, $usuario, $senha);
