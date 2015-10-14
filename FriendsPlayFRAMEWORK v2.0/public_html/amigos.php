@@ -4,7 +4,7 @@
 session_start();
 require_once("_Funcoes/FuncaoSelect.php");
 //require_once ("fbconfig.php");
-//$id_ev = $_REQUEST['id'];
+$id_ev = $_REQUEST['id'];
 $consulta = select("usuario","*", null, null, null);
 ?>
 <html lang="en">
@@ -77,7 +77,40 @@ $consulta = select("usuario","*", null, null, null);
                 </div>
 
                 <!--Segunda Linha--> 
-                
+                <div class="col-md-9 col-md-push-0">
+                    <h5>Menu > Participação em Eventos</h5>
+                    <h3>Eventos em que participo:</h3>
+
+                     <?php 
+                    if($consulta == true){
+                         for ($i=0; $i < count($consulta); $i++) {
+                        //     $aux =  getAmigo($consulta[$i]['id_usuario']);
+                        //     if($consulta[$i]['id_usuario'] == $aux){
+                    ?>
+                    <!-- Multiple Checkboxes -->
+                    <div class="list-group">
+                        <a href="_inserts/InserirConvite.php?id= <?php echo $consulta[$i]['id_usuario']?>&id_evento=<?php echo $id_ev?>" class="list-group-item">
+                             <?php echo $consulta[$i]['nome']; ?>
+                        </a>
+                       
+                    </div>
+                  
+                    <?php               
+                          
+                            // }else{ echo "nenhum usuario encontrado"; }
+                                    }
+                        }else{
+                            echo "Nunhum dado encontrado!";
+                    }
+                 ?>
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="selecionarAmigos"></label>
+                        <div class="col-md-4">
+                            <button id="selecionarAmigos" name="selecionarAmigos" class="btn btn-primary">Selecionar amigos</button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <div class="row" id="rodape">
