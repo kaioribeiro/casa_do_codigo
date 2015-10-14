@@ -3,9 +3,10 @@
 <?php
 session_start();
 require_once("_Funcoes/FuncaoSelect.php");
-//require_once ("fbconfig.php");
-//$id_ev = $_REQUEST['id'];
-$consulta = select("usuario","*", null, null, null);
+$estatus_true = true;
+$estatus_false = false;
+$consulta = select("convite","*","WHERE id_usuario = $_SESSION[FBID] and estatus = '$estatus_true'",null,null);
+$consulta_pendente = select("convite","*","WHERE id_usuario = $_SESSION[FBID] and estatus = '$estatus_false'",null,null);
 ?>
 <html lang="en">
     <head>
@@ -77,9 +78,70 @@ $consulta = select("usuario","*", null, null, null);
                 </div>
 
                 <!--Segunda Linha--> 
-                
+                <div class="col-md-9 col-md-push-0">
+                    <h5>Menu > Eventos que participo:</h5>
+                    
+                    
+                    
+                    <h3>Lista de eventos que participo:</h3>
+                    <table class="table table-bordered">
+                        <tbody><tr>
+                        
+                    <th>Nome do Evento</th>
+                    <th>Data</th>
+                    <th>Local</th>
+                    <th>Nº de participantes</th>
+                </tr>
 
-            </div>
+                 <?php 
+                    if($consulta == true){
+                        //Verificar se a data do evento já passou
+
+                           
+                        for ($i=0; $i < count($consulta); $i++) { 
+                            $convite = $consulta[$i]['id_evento'];
+                            
+                            $consulta_evento =  select("evento","*","WHERE id_evento = '$convite'", null, null);
+
+                            //Verificar a data do evento
+                            $data_atual = date('Y/m/d');
+                            if($data_atual < $consulta_evento[0]['data']){
+
+                            //Fazer uma subconsulta para retornar o nome do local que o evento participa
+                            
+                            
+                            
+                            $id_l = $consulta_evento[0]['id_relacao'];
+                            $consulta_local = select("local_evento","*","WHERE id_local = '$id_l'", null, null);
+
+                            //A cada nova consulta no banco de dados eh retornado um Array novo. Por isso
+                            //a coluna 1 deve ter o valor sempre 0, para que ele não pegue valores que não existem
+                            
+                            $local[$i] = (string) $consulta_local[0]['nome'];
+                            $nomeEvento[$i] = (string) $consulta_evento[0]['nome'];
+                 ?>
+                <tr>
+
+                    <td><?php echo $nomeEvento[$i];?></td>
+                    <td><?php echo $consulta_evento[0]['data']; ?></td>
+                    <td><?php echo $local[$i]; ?></td> 
+                    <td><?php echo $consulta_evento[0]['num_atual']; ?></td> 
+                </tr>
+                 <?php 
+                            $consulta_local = null;
+                                        }else{
+                                            $contar_data[$i] = $consulta[$i]['id_convite'];
+                                        }
+                                    }
+                                
+                        }else{
+                            echo "<h4 >Você ainda não tem nenhum convite.</h4>";
+                    }
+                 ?>
+                 </tbody>
+                    </table>
+                </div>
+        </div>
             <div class="row" id="rodape">
                 Copyright 2015 - by MangSoftware
                 <br>
